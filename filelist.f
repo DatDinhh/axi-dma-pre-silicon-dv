@@ -1,0 +1,13 @@
+rtl/dma_pkg.sv
+rtl/dma_regs_axil.sv
+rtl/dma_engine_axi.sv
+rtl/top_soc_dut.sv
+tb/interfaces/clk_rst_if.sv
+tb/interfaces/axil_if.sv
+tb/interfaces/axi_if.sv
+tb/interfaces/irq_if.sv
+tb/mem/mem_bkdr_if.sv
+tb/mem/axi_mem_model.sv
+tb/coverage/dma_cov.sv
+tb/tb_pkg.sv
+tb/tb_top.sv

@@ -1,0 +1,8 @@
+# cd D:/axi_dma_pre_silicon_dv
+# transcript file logs/out_of_range_test.log
+# vmap work work
+# 
+# vsim -wlf logs/out_of_range_test.wlf work.tb_top +UVM_TESTNAME=out_of_range_test +UVM_NO_RELNOTES
+# run -all
+# quit -f
+# reading modelsim.ini
