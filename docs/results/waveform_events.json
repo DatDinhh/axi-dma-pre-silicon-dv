@@ -1,0 +1,46 @@
+{
+  "SchemaVersion": 1,
+  "Metric": "events_from_measured_vcd",
+  "Sampling": "VALID/READY values immediately before each rising clock edge",
+  "TraceSha256": {
+    "before": "f7716d996eb9ea9b6782bef15776727dc0bbeefb4f731ddfe6df6b06018d7391",
+    "after": "8fa1c3066b8888d4ab146980d69314b7a77dd12952c1889d46291423501174ed",
+    "reset": "d18ac3232ac02df7817a86a46b2254e6bca5aab7f132159a02e58d1a5c3fc78c"
+  },
+  "WriteComparison": {
+    "before": {
+      "aw": [],
+      "w": [],
+      "b": []
+    },
+    "after": {
+      "aw": [
+        125.0
+      ],
+      "w": [
+        85.0
+      ],
+      "b": [
+        135.0
+      ]
+    },
+    "after_done_ns": 145.0,
+    "before_trace_end_ns": 1060.0
+  },
+  "ResetRecovery": {
+    "reset_ns": 4610.0,
+    "clear_ns": 4615.0,
+    "release_ns": 4660.0,
+    "last_write_ns": 4605.0,
+    "restart_ns": 5055.0,
+    "done_ns": 5355.0,
+    "irq_ns": 5355.0,
+    "recovery_b_ns": [
+      5125.0,
+      5195.0,
+      5265.0,
+      5335.0
+    ],
+    "committed_word": "0x2a292827"
+  }
+}

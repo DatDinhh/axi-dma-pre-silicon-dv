@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="550" viewBox="0 0 1000 550" role="img" aria-labelledby="title desc">
+  <title id="title">AXI DMA: register control, serialized data path, and interrupt</title>
+  <desc id="desc">An external AXI4-Lite master programs the DMA registers. A valid accepted START latches source, destination, and remaining byte count in the DMA engine. Each copy beat follows read address, read data, independent write address and write data handshakes, and write response. Read data is held in the WDATA output register. The external testbench AXI responder contains 64 KiB of byte memory. Engine status and event pulses update the registers. Top-level IRQ equals IRQ_EN AND (sticky DONE OR sticky ERR). The DUT and testbench share a clock and synchronous active-low reset. Transfers are aligned 32-bit single beats, with AxLEN zero, AxSIZE two, and ID zero.</desc>
+  <defs>
+    <marker id="blue-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#2563eb"/></marker>
+    <marker id="teal-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#087f8c"/></marker>
+    <marker id="violet-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#7c3aed"/></marker>
+    <marker id="gray-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#64748b"/></marker>
+    <style>
+      text { font-family: Arial, Helvetica, sans-serif; fill: #17243b; }
+      .muted { fill: #52627a; }
+      .mono { font-family: Consolas, 'Courier New', monospace; }
+      .blue { fill: #1d4ed8; }
+      .teal { fill: #087f8c; }
+      .violet { fill: #6d28d9; }
+      .wire { fill: none; stroke-width: 2.2; stroke-linejoin: round; }
+    </style>
+  </defs>
+
+  <rect width="1000" height="550" rx="12" fill="#ffffff"/>
+  <text x="24" y="38" font-size="26" font-weight="700">AXI DMA architecture</text>
+  <text x="24" y="64" font-size="16" class="muted">One descriptor, one word at a time; AW and W retire independently.</text>
+
+  <!-- The dashed boundary encloses exactly the synthesizable top-level DUT. -->
+  <rect x="192" y="98" width="570" height="337" rx="14" fill="#f7faff" stroke="#90a9cd" stroke-width="1.6" stroke-dasharray="7 5"/>
+  <text x="214" y="123" font-size="16" font-weight="700" class="blue mono">top_soc_dut</text>
+
+  <!-- External programming interface. -->
+  <text x="94" y="147" text-anchor="middle" font-size="13" class="muted">TESTBENCH</text>
+  <rect x="24" y="166" width="140" height="190" rx="10" fill="#f1f5f9" stroke="#bac8d8" stroke-width="1.5"/>
+  <text x="94" y="201" text-anchor="middle" font-size="19" font-weight="700">CSR master</text>
+  <text x="94" y="228" text-anchor="middle" font-size="15" class="muted">Program / poll</text>
+  <text x="94" y="255" text-anchor="middle" font-size="16" class="blue">AXI4-Lite</text>
+  <path d="M 166 269 H 212" class="wire" stroke="#2563eb" marker-start="url(#blue-arrow)" marker-end="url(#blue-arrow)"/>
+  <text x="94" y="320" text-anchor="middle" font-size="15" class="violet">Observe IRQ</text>
+
+  <!-- Register programming and sticky event storage. -->
+  <rect x="214" y="165" width="194" height="210" rx="10" fill="#ffffff" stroke="#2563eb" stroke-width="1.8"/>
+  <text x="311" y="192" text-anchor="middle" font-size="20" font-weight="700">Registers</text>
+  <text x="311" y="212" text-anchor="middle" font-size="14" class="mono muted">dma_regs_axil</text>
+  <text x="311" y="243" text-anchor="middle" font-size="16">CTRL · SRC · DST · LEN</text>
+  <path d="M 230 259 H 392" stroke="#dbe4f0"/>
+  <text x="311" y="283" text-anchor="middle" font-size="15">BUSY · BYTES_REMAIN</text>
+  <text x="311" y="308" text-anchor="middle" font-size="15">Sticky DONE / ERR</text>
+  <text x="311" y="333" text-anchor="middle" font-size="15">ERR_CODE · IRQ_EN</text>
+  <text x="311" y="359" text-anchor="middle" font-size="13" class="muted">Software clears sticky events</text>
+
+  <!-- Configuration is sampled only on an accepted valid START. -->
+  <path d="M 311 165 V 145 H 617 V 163" class="wire" stroke="#2563eb" marker-end="url(#blue-arrow)"/>
+  <text x="484" y="135" text-anchor="middle" font-size="14" class="blue">Configuration + START</text>
+
+  <!-- These are storage / sequencing functions inside dma_engine_axi. -->
+  <rect x="493" y="165" width="249" height="230" rx="10" fill="#ffffff" stroke="#087f8c" stroke-width="1.8"/>
+  <text x="617" y="192" text-anchor="middle" font-size="20" font-weight="700">DMA engine</text>
+  <text x="617" y="212" text-anchor="middle" font-size="14" class="mono muted">dma_engine_axi</text>
+  <rect x="509" y="226" width="217" height="37" rx="6" fill="#edf5ff"/>
+  <text x="617" y="250" text-anchor="middle" font-size="14">Latched SRC / DST / remaining</text>
+  <rect x="509" y="274" width="217" height="50" rx="6" fill="#e8f6f5"/>
+  <text x="617" y="294" text-anchor="middle" font-size="16" font-weight="700" class="teal">AR → R → AW + W → B</text>
+  <text x="617" y="314" text-anchor="middle" font-size="14" class="muted">Copy FSM: repeat / DONE / ERR</text>
+  <rect x="509" y="335" width="217" height="44" rx="6" fill="#f1f5f9"/>
+  <text x="617" y="353" text-anchor="middle" font-size="14">Read data held in</text>
+  <text x="617" y="371" text-anchor="middle" font-size="14" class="mono">WDATA[31:0] register</text>
+  <path d="M 491 366 H 410" class="wire" stroke="#087f8c" marker-end="url(#teal-arrow)"/>
+  <text x="450" y="333" text-anchor="middle" font-size="13" class="teal">Status +</text>
+  <text x="450" y="350" text-anchor="middle" font-size="13" class="teal">events</text>
+
+  <!-- IRQ is combined in the wrapper, not emitted directly by the engine. -->
+  <path d="M 311 375 V 389" class="wire" stroke="#7c3aed"/>
+  <rect x="214" y="389" width="219" height="30" rx="6" fill="#f1eafe" stroke="#c6b1eb"/>
+  <text x="323" y="409" text-anchor="middle" font-size="14" class="violet">IRQ_EN &amp;&amp; (DONE || ERR)</text>
+  <path d="M 214 405 H 94 V 358" class="wire" stroke="#7c3aed" marker-end="url(#violet-arrow)"/>
+  <text x="156" y="395" text-anchor="middle" font-size="13" class="violet">IRQ level</text>
+
+  <!-- AXI arrows show payload direction, with READY flowing in reverse. -->
+  <text x="787" y="189" text-anchor="middle" font-size="14" font-weight="700" class="muted">AXI4</text>
+  <path d="M 744 223 H 830" class="wire" stroke="#087f8c" marker-end="url(#teal-arrow)"/>
+  <text x="787" y="215" text-anchor="middle" font-size="14" font-weight="700" class="teal">AR</text>
+  <path d="M 830 253 H 744" class="wire" stroke="#087f8c" marker-end="url(#teal-arrow)"/>
+  <text x="787" y="245" text-anchor="middle" font-size="14" font-weight="700" class="teal">R</text>
+  <path d="M 744 290 H 830" class="wire" stroke="#2563eb" marker-end="url(#blue-arrow)"/>
+  <text x="787" y="282" text-anchor="middle" font-size="14" font-weight="700" class="blue">AW</text>
+  <path d="M 744 322 H 830" class="wire" stroke="#2563eb" marker-end="url(#blue-arrow)"/>
+  <text x="787" y="314" text-anchor="middle" font-size="14" font-weight="700" class="blue">W</text>
+  <path d="M 830 354 H 744" class="wire" stroke="#2563eb" marker-end="url(#blue-arrow)"/>
+  <text x="787" y="346" text-anchor="middle" font-size="14" font-weight="700" class="blue">B</text>
+
+  <text x="904" y="159" text-anchor="middle" font-size="13" class="muted">TESTBENCH</text>
+  <rect x="832" y="179" width="144" height="199" rx="10" fill="#f1f5f9" stroke="#bac8d8" stroke-width="1.5"/>
+  <text x="904" y="207" text-anchor="middle" font-size="17" font-weight="700">AXI responder</text>
+  <text x="904" y="235" text-anchor="middle" font-size="16">64 KiB memory</text>
+  <path d="M 844 254 H 964" stroke="#d4deea"/>
+  <text x="904" y="282" text-anchor="middle" font-size="14" class="muted">Read source</text>
+  <text x="904" y="309" text-anchor="middle" font-size="14" class="muted">Write destination</text>
+  <text x="904" y="350" text-anchor="middle" font-size="14" class="muted">Delay / SLVERR</text>
+
+  <rect x="192" y="457" width="570" height="35" rx="7" fill="#f1f5f9"/>
+  <text x="477" y="480" text-anchor="middle" font-size="14" class="muted">DUT + testbench: shared clk / synchronous active-low rst_n</text>
+  <path d="M 659 457 V 437" class="wire" stroke="#64748b" stroke-dasharray="4 4" marker-end="url(#gray-arrow)"/>
+  <text x="24" y="507" font-size="13" class="muted">Channel arrows show payload direction; each AXI channel uses VALID / READY.</text>
+  <text x="24" y="533" font-size="16" font-weight="700">32-bit aligned copies · single-beat transfers · AxLEN = 0 · AxSIZE = 2 · ID = 0</text>
+</svg>

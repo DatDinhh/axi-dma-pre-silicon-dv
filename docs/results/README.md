@@ -8,15 +8,16 @@ I keep these reports so readers can trace the results in my project overview to 
 | [Unit checks](v1_unit_checks.json) and [scoreboard negative test](v1_checker_negative.json) | 14/14 expected unit outcomes; intentional memory corruption was detected. |
 | [Local DUT campaign](local_verilator_suite.json) and [native coverage](local_native_coverage.md) | 60/60 Verilator runs passed with RTL instrumentation enabled. |
 | [SVA activation](local_sva_activation.md) | 27/37 cover properties hit; hold antecedents exercised on 5/10 channels. |
+| [Measured waveforms](../waveforms/README.md) | Original/fixed AW/W comparison and reset recovery, with actual VCD files and derived event times. |
 | [Synthesis](local_synthesis.md) | Quartus Analysis & Synthesis passed with zero errors and 67 reviewed warnings. No timing closure was run. |
 | [Loader study](loader_ab_study.json) and [earlier campaign](../validation_legacy_campaign.md) | Original startup failures and the measured simulator option comparison. |
 | [Tool capabilities](tool_capabilities.json) and [Xcelium runner fixtures](xcelium_runner_fixture_tests.json) | Local capability probes and runner-control checks. Xcelium DUT execution remains pending. |
 
 ## How I publish these records
 
-These are sanitized historical review copies. I replace local workspace and tool-installation paths with `{repo}`, `{simulator}`, `{quartus}`, and `{iverilog}`, and remove date stamps from run and artifact names. Those aliases describe archived artifacts; they are not links to files included in this public folder. I keep test outcomes, seeds, counters, tool versions, and factual UTC metadata.
+Most reports here are sanitized historical review copies. The waveform records link to original VCD files and describe newly captured focused tests; their figures and event times can be regenerated. I replace local workspace and tool-installation paths with `{repo}`, `{simulator}`, `{quartus}`, and `{iverilog}`, and remove date stamps from run and artifact names. Those aliases describe archived artifacts; they are not links to files included in this public folder. I keep test outcomes, seeds, counters, tool versions, and factual UTC metadata.
 
-Each JSON records its original artifact SHA-256 under `_Publication`. Existing source hashes, report hashes, manifest hashes, and provenance signatures still refer to the original bytes. They do not authenticate the rewritten JSON. Frozen source manifests identify the code used for those runs; later documentation, path, and runner cleanup means some entries differ from the current repository. The full campaigns were not rerun for that cleanup.
+Each sanitized historical JSON copy records its original artifact SHA-256 under `_Publication`. The waveform evidence record instead identifies its original capture reports and unchanged VCD hashes; the waveform event record is derived directly from those included VCD files. Existing source hashes, report hashes, manifest hashes, and provenance signatures still refer to the original bytes. They do not authenticate the rewritten JSON. Frozen source manifests identify the code used for those runs; later documentation, path, and runner cleanup means some entries differ from the current repository. The full campaigns were not rerun for that cleanup.
 
 I preserve the original evidence bytes in a local archive excluded from Git and source bundles. Its manifest maps original paths to date-free archive entries and records hashes. I remove reproducible compiler databases and binaries from the working directory.
 

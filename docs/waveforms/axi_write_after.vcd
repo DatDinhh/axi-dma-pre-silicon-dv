@@ -1,0 +1,239 @@
+$date
+	Mon Sep 14 12:19:47 2026
+$end
+$version
+	ModelSim Version 2020.1
+$end
+$timescale
+	1ps
+$end
+
+$scope module engine_aw_w_test $end
+$var reg 1 ! clk $end
+$var reg 1 " rst_n $end
+$var reg 1 # start $end
+$var reg 1 $ busy $end
+$var reg 1 % accept $end
+$var reg 1 & done $end
+$var reg 1 ' err $end
+$var reg 32 ( remain [31:0] $end
+$var reg 8 ) err_code [7:0] $end
+$var integer 32 * cycles $end
+$var integer 32 + aw_cycle $end
+$var integer 32 , w_cycle $end
+$var integer 32 - write_age $end
+$var reg 1 . aw_seen $end
+$var reg 1 / w_seen $end
+
+$scope module dut $end
+$var reg 3 0 state [2:0] $end
+$upscope $end
+
+$scope module axi $end
+$var reg 1 1 awvalid $end
+$var reg 1 2 awready $end
+$var reg 32 3 awaddr [31:0] $end
+$var reg 1 4 wvalid $end
+$var reg 1 5 wready $end
+$var reg 32 6 wdata [31:0] $end
+$var reg 4 7 wstrb [3:0] $end
+$var reg 1 8 wlast $end
+$var reg 1 9 bvalid $end
+$var reg 1 : bready $end
+$var reg 2 ; bresp [1:0] $end
+$var reg 1 < arvalid $end
+$var reg 1 = arready $end
+$var reg 32 > araddr [31:0] $end
+$var reg 1 ? rvalid $end
+$var reg 1 @ rready $end
+$var reg 32 A rdata [31:0] $end
+$var reg 2 B rresp [1:0] $end
+$var reg 1 C rlast $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+0!
+0"
+0#
+x$
+x%
+x&
+x'
+bx (
+bx )
+bx 3
+x1
+02
+bx 6
+bx 7
+x8
+x4
+05
+b0 ;
+09
+x:
+bx >
+x<
+0=
+b11001010111111100001001000110100 A
+b0 B
+1C
+x?
+x@
+bx 0
+0.
+0/
+b0 -
+b11111111111111111111111111111111 +
+b11111111111111111111111111111111 ,
+b0 *
+$end
+#5000
+1!
+b0 0
+b1 *
+0?
+0:
+04
+08
+b0 7
+b0 6
+01
+b0 3
+0@
+0<
+b0 >
+0$
+b0 (
+0%
+0&
+0'
+b0 )
+#10000
+0!
+#15000
+1!
+b10 *
+#20000
+0!
+#25000
+1!
+b11 *
+#30000
+0!
+#35000
+1!
+b100 *
+#40000
+0!
+1"
+1=
+15
+#45000
+1!
+b101 *
+#50000
+0!
+1#
+#55000
+1!
+b1 0
+b110 *
+1<
+b100000000 >
+b100 (
+1%
+1$
+#60000
+0!
+0#
+#65000
+1!
+b10 0
+b111 *
+1?
+1@
+0<
+0%
+#70000
+0!
+#75000
+1!
+b11 0
+b1000 *
+0?
+14
+18
+b1111 7
+b11001010111111100001001000110100 6
+11
+b1000000000 3
+0@
+#80000
+0!
+#85000
+1!
+b1001 *
+b1 -
+1/
+b1000 ,
+05
+08
+04
+#90000
+0!
+#95000
+1!
+b1010 *
+b10 -
+#100000
+0!
+#105000
+1!
+b1011 *
+b11 -
+#110000
+0!
+#115000
+1!
+b1100 *
+b100 -
+12
+#120000
+0!
+#125000
+1!
+b101 0
+b1101 *
+b101 -
+1.
+b1100 +
+19
+02
+1:
+01
+#130000
+0!
+#135000
+1!
+b110 0
+b1110 *
+b110 -
+0.
+0/
+09
+15
+0:
+b0 (
+#140000
+0!
+#145000
+1!
+b0 0
+b1111 *
+1&
+0$
+#150000
+0!

@@ -23,7 +23,30 @@ VALID remains set until its own handshake. The engine enters the B-response
 state once both handshakes have completed, including simultaneous handshakes.
 The pending VALID flags preserve the payload under channel backpressure.
 
-Fixed RTL results on ModelSim Intel FPGA Edition 2020.1, September 13, 2026:
+### Measured before/after trace
+
+![Measured AXI write trace comparing the deadlocked baseline engine with independent AW/W completion in the fixed engine](../images/axi_write_deadlock.svg)
+
+For this figure, I compiled the engine from `c5f730d` and the current engine against
+the same current `dma_pkg.sv`, `axi_if.sv`, and `engine_aw_w_test.sv`, using
+`+AW_MODE=0`. This isolates the engine change. The figure represents an engine-only
+comparison; the rest of the historical checkout is outside this reproduction.
+
+The baseline holds AWVALID high and WVALID low until the testbench watchdog fires
+at **1060 ns**. In the fixed trace, I observe **W at 85 ns**, **AW at 125 ns**, and
+**B at 135 ns**, followed by **DONE at 145 ns**. WDATA remains held while its
+channel is pending, and AWVALID stays asserted after W completes until AW is
+accepted. These are measured simulation events; the watchdog is a testbench bound,
+not a hardware timeout or an AXI latency requirement.
+
+I include the raw traces and rerun commands in the
+[waveform guide](../waveforms/README.md). The
+[source evidence](../results/waveform_evidence.json) identifies the compared inputs,
+and the [event record](../results/waveform_events.json) records the measured times.
+
+### Related unit outcomes
+
+My focused unit suite on ModelSim Intel FPGA Edition 2020.1 recorded:
 
 | Unit case | Observed result |
 | --- | --- |

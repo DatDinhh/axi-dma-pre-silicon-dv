@@ -55,6 +55,26 @@ W-before-AW, and simultaneous-handshake cases, and run the integrated suite with
 and fix. I also found a final-WLAST error-handling defect in the responder, which
 is why I test the verification components independently of the full DMA testbench.
 
+## Reset cancellation and recovery
+
+![Measured reset during a pending write response, followed by a successful 16-byte recovery transfer](images/reset_recovery.svg)
+
+I captured the fifth reset scenario in `reset_mid_transfer_test`, seed 7, while the
+engine waits for a B response. The W handshake has already committed a word at
+**4605 ns**. Reset goes low at **4610 ns**, and the next rising clock edge at
+**4615 ns** clears BUSY and pending protocol state. My memory oracle retains the
+committed write: cancelling a transfer does not undo memory side effects.
+
+The second window shows a fresh **16-byte** copy from the same simulation.
+Four B handshakes retire its four words, and sticky **DONE and IRQ rise at
+5355 ns**. I use these two windows to show both cancellation and successful reuse
+of the DMA after reset. The figure shows selected signals; the memory checks run
+in the testbench.
+
+The [waveform guide](waveforms/README.md) includes the complete capture and rerun
+commands. I keep the [source evidence](results/waveform_evidence.json) and
+[measured events](results/waveform_events.json) alongside the figures.
+
 ## Reproducing a case and testing the checker
 
 This short case uses bounded memory stalls and the AWREADY policy that exposed

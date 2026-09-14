@@ -19,8 +19,8 @@ def main(argv=None):
     output = (args.output or ROOT / "output" / ("axi_dma_xcelium_" + bundle_id + ".zip")).resolve()
     if output.exists():
         parser.error("Refusing to overwrite an existing handoff bundle: " + str(output))
-    files = source_files(ROOT) + [ROOT / "README.md", ROOT / ".gitignore"]
-    files += [path for path in (ROOT / "docs").rglob("*") if path.is_file() and path.suffix in (".md", ".json")]
+    files = source_files(ROOT) + [ROOT / "README.md", ROOT / ".gitignore", ROOT / ".gitattributes"]
+    files += [path for path in (ROOT / "docs").rglob("*") if path.is_file() and path.suffix in (".md", ".json", ".svg", ".png", ".vcd")]
     entries = []
     output.parent.mkdir(parents=True, exist_ok=True)
     with zipfile.ZipFile(output, "x", compression=zipfile.ZIP_DEFLATED) as archive:

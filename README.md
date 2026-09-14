@@ -14,6 +14,15 @@ The [local measurements](docs/local_validation.md) and [UVM validation record](d
 explain what each result covers. I have not yet collected native UVM covergroup
 results on Xcelium.
 
+## DUT architecture
+
+![DUT block diagram showing register control, the single-word DMA engine, AXI memory channels, and gated IRQ](docs/images/dma_architecture.svg)
+
+I separate the software-visible configuration from the active descriptor. The
+engine latches the descriptor at an accepted START, reads one word, and holds it in
+the WDATA register while AW and W complete independently. Engine events update
+sticky DONE/ERR in the registers; the top-level wrapper gates those bits with IRQ_EN.
+
 ## Quick start
 
 I use PowerShell with a ModelSim/Questa installation on PATH, including its
@@ -113,6 +122,21 @@ constraint solver and is described as seeded stimulus, not constrained random.
 | `+AXI_STALL_SEED=N` | Explicit deterministic memory timing seed |
 | `+AXI_RERR_ADDR=100` | SLVERR on each read transaction beginning at hexadecimal address 0x100 |
 | `+AXI_BERR_ADDR=8000` | SLVERR on each write transaction beginning at hexadecimal address 0x8000; writes still commit |
+
+## A bug at the waveform level
+
+![Measured comparison: the original engine stalls with AWVALID high and WVALID low; the fixed engine completes W, AW, B, and DONE](docs/images/axi_write_deadlock.svg)
+
+I reproduced the AW/W deadlock with a slave that waits for WVALID before accepting
+AW. In this engine-only comparison, both versions use the same current package,
+interface, and test. The fix completes W at 85 ns and AW at 125 ns; the original
+engine reaches the 1060 ns watchdog without either handshake.
+
+The [bug report](docs/bugs/axi_write_deadlock.md) explains the change. I also captured
+[reset cancellation and recovery](docs/design_walkthrough.md#reset-cancellation-and-recovery).
+The [waveform guide](docs/waveforms/README.md) contains rerun commands and raw traces;
+[source evidence](docs/results/waveform_evidence.json) and
+[measured events](docs/results/waveform_events.json) document how I produced the figures.
 
 ## Evidence and limits
 

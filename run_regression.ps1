@@ -4,6 +4,7 @@ Runs isolated ModelSim/Questa UVM regressions or simulator feature probes.
 .DESCRIPTION
 Each invocation preserves logs, work library, seed/provenance metadata, JSON and
 JUnit under output/uvm_<unique id>. UTC times remain in report metadata.
+-Waves records selected DUT control and AXI signals in a compact VCD per test.
 -ProbeCapabilities runs only feature probes; unsupported features are reported as
 UNSUPPORTED/UNAVAILABLE and never represented as DUT coverage or signoff.
 Exit codes: 0 all tests passed / probes completed; 1 setup error; 2 compile failure;
@@ -23,6 +24,7 @@ param(
     [ValidateSet('Auto','Enabled','Disabled')][string]$DpiExportMode = 'Auto',
     [switch]$EnableCoverage,
     [switch]$EnableSva,
+    [switch]$Waves,
     [switch]$ProbeCapabilities,
     [ValidateRange(1, 86400)][int]$TimeoutSeconds = 180
 )
@@ -77,7 +79,7 @@ try {
         SchemaVersion = 1; Mode = 'regression'; RunId = $runId; StartedUtc = [DateTime]::UtcNow.ToString('o')
         CompletedUtc = $null; GitRevision = $gitRevision; GitDirty = $gitDirty; ToolVersion = $toolVersion
         VsimPath = $simulator.VsimPath; UvmPath = $simulator.UvmPath; CoverageEnabled = [bool]$EnableCoverage
-        SvaEnabled = [bool]$EnableSva; UvmNoDpiEnabled = $usesUvmNoDpi; DpiExportModeRequested = $DpiExportMode; DpiExportModeResolved = $dpiExportModeResolved; DpiExportModeReason = $dpiExportModeReason; Tests = $Tests; Seeds = $Seeds; PlusArgs = $PlusArgs
+        SvaEnabled = [bool]$EnableSva; WavesEnabled = [bool]$Waves; UvmNoDpiEnabled = $usesUvmNoDpi; DpiExportModeRequested = $DpiExportMode; DpiExportModeResolved = $dpiExportModeResolved; DpiExportModeReason = $dpiExportModeReason; Tests = $Tests; Seeds = $Seeds; PlusArgs = $PlusArgs
         TimeoutSeconds = $TimeoutSeconds; OutputDirectory = $runDirectory; SourceManifestPath = (Join-Path $runDirectory 'source_manifest.json'); SourceManifestSha256 = ''; RequirementCoverageMetric = 'observed_requirement_bins'; Compile = $null; Results = @()
     }
     # Freeze all repository HDL and runner inputs before compilation. The manifest
@@ -196,6 +198,28 @@ quit -f -code 0
             $testPlusArgs += $PlusArgs
             if (-not @($PlusArgs | Where-Object { $_ -match '^\+AXI_STALL_SEED=' }).Count) { $testPlusArgs += ('+AXI_STALL_SEED=' + $seed) }
             $loadOptions = ('-sv_seed ' + $seed + ' ' + $dpiLoadOption).Trim()
+            $wavePath = $null
+            $waveSetupCommands = ''
+            $waveFlushCommand = ''
+            if ($Waves) {
+                # Preserve visibility for VCD access, but dump only this explicit
+                # signal list: no UVM objects, memories, or recursive hierarchy.
+                $loadOptions += ' -voptargs=+acc'
+                $wavePath = Join-Path $testDirectory 'waves.vcd'
+                $waveSignals = @(
+                    'clk', 'rst_n', 'engine_busy', 'engine_bytes_remain',
+                    'sticky_done', 'sticky_err', 'irq', 'start_req_pulse',
+                    'start_accept_pulse', 'set_done_pulse', 'set_err_pulse',
+                    'cfg_src_addr', 'cfg_dst_addr', 'cfg_len_bytes',
+                    'm_axi_awaddr', 'm_axi_awvalid', 'm_axi_awready',
+                    'm_axi_wdata', 'm_axi_wvalid', 'm_axi_wready',
+                    'm_axi_bresp', 'm_axi_bvalid', 'm_axi_bready',
+                    'm_axi_araddr', 'm_axi_arvalid', 'm_axi_arready',
+                    'm_axi_rdata', 'm_axi_rvalid', 'm_axi_rready'
+                ) | ForEach-Object { ConvertTo-TclWord ('/tb_top/dut/' + $_) }
+                $waveSetupCommands = 'vcd file ' + (ConvertTo-TclWord $wavePath) + "`n" + 'vcd add ' + ($waveSignals -join ' ')
+                $waveFlushCommand = 'vcd flush'
+            }
             $coverageCommands = ''
             if ($EnableCoverage) {
                 $loadOptions += ' -coverage'
@@ -207,7 +231,9 @@ onerror {quit -f -code 3}
 onbreak {resume}
 transcript file $(ConvertTo-TclWord $logPath)
 vsim -onfinish stop $loadOptions -wlf $(ConvertTo-TclWord (Join-Path $testDirectory 'waves.wlf')) work.tb_top $plusArgText
+$waveSetupCommands
 run -all
+$waveFlushCommand
 $coverageCommands
 quit -f -code 0
 "@
@@ -220,12 +246,15 @@ quit -f -code 0
             if (-not $reason -and (-not (Test-Path -LiteralPath $coveragePath) -or (Get-Item -LiteralPath $coveragePath).Length -eq 0)) {
                 $reason = 'Required observed-bin coverage export is missing or empty.'
             }
+            if (-not $reason -and $Waves -and (-not (Test-Path -LiteralPath $wavePath) -or (Get-Item -LiteralPath $wavePath).Length -eq 0)) {
+                $reason = 'Wave capture was requested but the VCD export is missing or empty.'
+            }
             $result = 'PASS'
             if ($reason) { $result = 'FAIL' }
             $entry = [pscustomobject]@{
                 Test = $testName; Seed = $seed; PlusArgs = $testPlusArgs; Result = $result; Reason = $reason
                 GitRevision = $gitRevision; GitDirty = $gitDirty; ToolVersion = $toolVersion
-                ExitCode = $process.ExitCode; TimedOut = $process.TimedOut; RuntimeSeconds = $process.RuntimeSeconds; LogPath = $logPath; CoveragePath = $coveragePath
+                ExitCode = $process.ExitCode; TimedOut = $process.TimedOut; RuntimeSeconds = $process.RuntimeSeconds; LogPath = $logPath; CoveragePath = $coveragePath; WavePath = $wavePath
             }
             $report.Results += $entry
             $entry | ConvertTo-Json -Depth 8 | Set-Content -LiteralPath (Join-Path $testDirectory 'result.json') -Encoding UTF8

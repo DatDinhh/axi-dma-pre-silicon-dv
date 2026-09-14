@@ -1,0 +1,8 @@
+# Native traces and published figures keep their exact recorded bytes.
+docs/waveforms/*.vcd -text whitespace=cr-at-eol
+docs/images/*.svg -text -whitespace
+docs/images/*.png binary
+docs/results/waveform_events.json -text
+
+# Keep the hashed waveform renderer identical across Windows/Linux checkouts.
+scripts/render_waveforms.py text eol=lf

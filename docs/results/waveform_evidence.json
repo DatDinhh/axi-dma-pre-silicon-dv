@@ -1,0 +1,382 @@
+{
+  "SchemaVersion": 1,
+  "Kind": "measured-waveform-evidence",
+  "ToolVersion": "Model Technology ModelSim - INTEL FPGA STARTER EDITION vsim 2020.1 Simulator 2020.02 Feb 28 2020",
+  "Publication": {
+    "Scope": "Sanitized capture summary; original VCD bytes are included without alteration.",
+    "Paths": "All published paths are repository-relative. Source hashes identify executed snapshots, not later tooling/documentation edits.",
+    "CampaignAccounting": "The original failing engine is expected negative evidence. These focused captures do not add to the historical 39-run/60-run campaign totals."
+  },
+  "WriteComparison": {
+    "Result": "PASS_EVIDENCE_CAPTURE",
+    "DutRegression": false,
+    "GitRevision": "464b091febb83e86432597d4fc856e395aeddd01",
+    "GitDirty": true,
+    "BeforeRevision": "c5f730ddb48d09e6effee9ebe9ac23aac5003cc1",
+    "BeforeEngineGitBlob": "333d813c20721e43f5b1529a34a96f14fee08003",
+    "BeforeEngineOrigin": "Exact Git blob; all other sources are current working-tree bytes.",
+    "AfterEngineOrigin": "Current working-tree bytes; GitRevision alone is not a source fingerprint.",
+    "UvmUsed": false,
+    "CoverageEnabled": false,
+    "TimeoutSeconds": 60,
+    "SimulationLimitNs": 1100,
+    "Top": "engine_aw_w_test",
+    "PlusArgs": [
+      "+AW_MODE=0"
+    ],
+    "CompletionExitPolicy": "On simulator break, flush VCD and exit 0 if DONE is high, otherwise 3. Logs and exact outcome markers are checked independently.",
+    "DifferentEngineOnly": true,
+    "RunnerSources": [
+      {
+        "Path": "scripts/capture_axi_write_evidence.ps1",
+        "Bytes": 13550,
+        "Sha256": "fc640e41fc2e30c0d9aaaf10fb8d1808ef3ac0b339314447f0b391bdf71d8e9e"
+      },
+      {
+        "Path": "scripts/RegressionTools.psm1",
+        "Bytes": 10178,
+        "Sha256": "31e521343a3679a395af5fbe354a4fcff8ae5e3eb2b2e62a6e1e9161e81d1fc0"
+      }
+    ],
+    "Results": [
+      {
+        "Name": "before",
+        "Result": "CAPTURED_EXPECTED_OUTCOME",
+        "DutResult": "EXPECTED_FAIL_ENGINE_TIMEOUT",
+        "Sources": [
+          {
+            "Path": "rtl/dma_pkg.sv",
+            "Bytes": 5615,
+            "Sha256": "d97ab1621dfb59c440b0e8d69381622e92080ddfec4d21ec047ff147676117f4"
+          },
+          {
+            "Path": "rtl/dma_engine_axi.sv",
+            "Bytes": 15469,
+            "Sha256": "00b564f1f9760e0259760de9884bf8dd592daa16c40d7bc7306d2a7ba592a45b"
+          },
+          {
+            "Path": "tb/interfaces/axi_if.sv",
+            "Bytes": 7999,
+            "Sha256": "4466274571ccfe1a690e3b3183e5c69f3327eaa47fbbf9363f7e63572301d6f9"
+          },
+          {
+            "Path": "tb/unit/engine_aw_w_test.sv",
+            "Bytes": 4655,
+            "Sha256": "863cfd5cea75c90fe22793926337221112bc5a7ff7fb9b7f410138471d799f36"
+          }
+        ],
+        "Compile": {
+          "ExitCode": 0,
+          "TimedOut": false
+        },
+        "Simulation": {
+          "ExitCode": 3,
+          "TimedOut": false
+        },
+        "VcdPath": "docs/waveforms/axi_write_before.vcd",
+        "VcdSha256": "f7716d996eb9ea9b6782bef15776727dc0bbeefb4f731ddfe6df6b06018d7391"
+      },
+      {
+        "Name": "after",
+        "Result": "CAPTURED_EXPECTED_OUTCOME",
+        "DutResult": "PASS",
+        "Sources": [
+          {
+            "Path": "rtl/dma_pkg.sv",
+            "Bytes": 5615,
+            "Sha256": "d97ab1621dfb59c440b0e8d69381622e92080ddfec4d21ec047ff147676117f4"
+          },
+          {
+            "Path": "rtl/dma_engine_axi.sv",
+            "Bytes": 16087,
+            "Sha256": "641142d3fa6590fa679ed21e45dbd24bc6664e34f26769063c6dc97a4fe9af1b"
+          },
+          {
+            "Path": "tb/interfaces/axi_if.sv",
+            "Bytes": 7999,
+            "Sha256": "4466274571ccfe1a690e3b3183e5c69f3327eaa47fbbf9363f7e63572301d6f9"
+          },
+          {
+            "Path": "tb/unit/engine_aw_w_test.sv",
+            "Bytes": 4655,
+            "Sha256": "863cfd5cea75c90fe22793926337221112bc5a7ff7fb9b7f410138471d799f36"
+          }
+        ],
+        "Compile": {
+          "ExitCode": 0,
+          "TimedOut": false
+        },
+        "Simulation": {
+          "ExitCode": 0,
+          "TimedOut": false
+        },
+        "VcdPath": "docs/waveforms/axi_write_after.vcd",
+        "VcdSha256": "8fa1c3066b8888d4ab146980d69314b7a77dd12952c1889d46291423501174ed"
+      }
+    ]
+  },
+  "ResetRecovery": {
+    "GitRevision": "464b091febb83e86432597d4fc856e395aeddd01",
+    "GitDirty": true,
+    "CoverageEnabled": false,
+    "SvaEnabled": false,
+    "WavesEnabled": true,
+    "UvmNoDpiEnabled": true,
+    "DpiExportModeResolved": "Disabled",
+    "SourceManifestSha256": "04F8DE04032179AA0A7926354FB8447FCD1950BB0D9A1E837C2F15E5B804D9E9",
+    "Test": "reset_mid_transfer_test",
+    "Seed": 7,
+    "Result": "PASS",
+    "ExitCode": 0,
+    "TimedOut": false,
+    "VcdPath": "docs/waveforms/reset_recovery.vcd",
+    "VcdSha256": "d18ac3232ac02df7817a86a46b2254e6bca5aab7f132159a02e58d1a5c3fc78c",
+    "PlusArgs": [
+      "+UVM_TESTNAME=reset_mid_transfer_test",
+      "+UVM_NO_RELNOTES",
+      "+TEST_SEED=7",
+      "+AXI_STALL_SEED=7"
+    ],
+    "CompileResult": "PASS",
+    "UvmErrors": 0,
+    "UvmFatals": 0,
+    "Scoreboard": {
+      "Starts": 10,
+      "Completed": 5,
+      "ResetAborts": 5,
+      "BusyStarts": 0,
+      "MemoryBytesChecked": 655360
+    },
+    "Sources": [
+      {
+        "Path": "filelist.f",
+        "Sha256": "6811FD86BB4AD550F71BCA4CBADF88BB5EA11E4E09ED38EB4E1F434EEA9CCCDE"
+      },
+      {
+        "Path": "rtl/dma_engine_axi.sv",
+        "Sha256": "641142D3FA6590FA679ED21E45DBD24BC6664E34F26769063C6DC97A4FE9AF1B"
+      },
+      {
+        "Path": "rtl/dma_pkg.sv",
+        "Sha256": "D97AB1621DFB59C440B0E8D69381622E92080DDFEC4D21EC047FF147676117F4"
+      },
+      {
+        "Path": "rtl/dma_regs_axil.sv",
+        "Sha256": "6DE971AEB7AEDE31BC18884BC4E921674B87E7FA4422001D0DF5C34642D2D79E"
+      },
+      {
+        "Path": "rtl/top_soc_dut.sv",
+        "Sha256": "E2A72CD1E38D76E3291B0373AB221E2F9088194623D3120923DDBAE417F3CE78"
+      },
+      {
+        "Path": "run_regression.ps1",
+        "Sha256": "5015A943AB2D7081F3729E62DE488C867626227CA6EBE149AE0ADBC90207F526"
+      },
+      {
+        "Path": "scripts/check_local_sva_coverage.py",
+        "Sha256": "5D6E3245A65DF886FF67C0F156CD0FF290AD1405942B671AB82D06A24FB4B5A9"
+      },
+      {
+        "Path": "scripts/check_synthesis.py",
+        "Sha256": "486F4CF51720099D07F454AFE3253358230A20BACD7C1320BE1D13A54298656B"
+      },
+      {
+        "Path": "scripts/diagnostics/Compare-LegacyLoader.ps1",
+        "Sha256": "7B8EB6BC0B71FE5EDAA2C98787F1AB223475B513732DB65A67D21AEAEE4997CE"
+      },
+      {
+        "Path": "scripts/diagnostics/README.md",
+        "Sha256": "5478A5ACB6A3AD57BB7D89E7645E3E496554A8802C611C005E3CAAC215C1B753"
+      },
+      {
+        "Path": "scripts/diagnostics/tool_probe_assertion.sv",
+        "Sha256": "071259AA652EFF9BE28DD39C72048CD350EBB9E2462B712F3FCD935A8FCD6FD8"
+      },
+      {
+        "Path": "scripts/diagnostics/tool_probe_main.cpp",
+        "Sha256": "E9BFAD08BAF2DB459421C6176EF136353A79FB0F1DBE22BB6F13FA3408103897"
+      },
+      {
+        "Path": "scripts/diagnostics/tool_probe_verilator.sh",
+        "Sha256": "BEA4F2A42C63E1964CF15D7CFDB0D7C9BD50B7897AC4993C699AC163DB93DF64"
+      },
+      {
+        "Path": "scripts/local_coverage.py",
+        "Sha256": "6FD2F341F9E7FD1F669F8C9F547F279952EE2F9547F919866DA16F356816DF0E"
+      },
+      {
+        "Path": "scripts/merge_coverage.py",
+        "Sha256": "91F988F188CADEDCF7A19AED9F9D9DF339305C113F33AF3AB5075BAC4652D98C"
+      },
+      {
+        "Path": "scripts/package_xcelium.py",
+        "Sha256": "8FA36C6EF854B9BF201E8AD907EF65A75FF0BC1393CFCF62DC885BD60643AAA7"
+      },
+      {
+        "Path": "scripts/probes/assertion_probe.sv",
+        "Sha256": "D82B5D56F7A5F75A2632557F77EBAC6C5E47E6C10454B2416D18919358AA67E5"
+      },
+      {
+        "Path": "scripts/probes/constrained_random_probe.sv",
+        "Sha256": "70944B1D4C5592C8538436308A397BD3F4CE39D18339768A6DA6F72E472F009D"
+      },
+      {
+        "Path": "scripts/probes/covergroup_probe.sv",
+        "Sha256": "A65BB1AF1D7C8FD75F386327F6C67CF3B988012FFAF86B0B16AB78AC1055E5BA"
+      },
+      {
+        "Path": "scripts/probes/uvm_probe.sv",
+        "Sha256": "832BFF55300F8CAABF6274D76DC705A236005E3BB7DC608B9C8D086BFF55EDD3"
+      },
+      {
+        "Path": "scripts/RegressionTools.psm1",
+        "Sha256": "31E521343A3679A395AF5FBE354A4FCFF8AE5E3EB2B2E62A6E1E9161E81D1FC0"
+      },
+      {
+        "Path": "scripts/run_local_verilator.py",
+        "Sha256": "7336C4421171C78894390A56EC8C5B997B0228F8864213DC1142C0D0CA8C7911"
+      },
+      {
+        "Path": "scripts/run_portfolio_suite.ps1",
+        "Sha256": "67CBB84CDFD1590A865A3299362F3F3CE274276333E18C9DF68BFA8B1E489B00"
+      },
+      {
+        "Path": "scripts/run_unit_checks.ps1",
+        "Sha256": "165FAD417B03D53AF902D2B5FC50FC075B157A07313ACE058042A01D5588BDA7"
+      },
+      {
+        "Path": "scripts/run_xcelium.py",
+        "Sha256": "DD358357B5701B038C5C6B21E26B2C6BB536F84D413B19B446EBFC9B0EDCC3AA"
+      },
+      {
+        "Path": "scripts/test_local_sva_coverage.py",
+        "Sha256": "2BA228FD8BD74BB83B33C31E815D52483F5CDCAB3BAC71A17BBE84067E9BD8FE"
+      },
+      {
+        "Path": "scripts/test_merge_coverage.py",
+        "Sha256": "EC72B0ED5ECD39F41AA4FCC751835CBE8D26213E9D657A2C9EA7A9ECD76397BB"
+      },
+      {
+        "Path": "scripts/test_xcelium_runner.py",
+        "Sha256": "C67914020C490A089FCA0A08931C34E87E10EE6E78EE75853F3F4C74F9FE559D"
+      },
+      {
+        "Path": "scripts/Test-RegressionTools.ps1",
+        "Sha256": "D3E5F102E3ED5128E28527C31533FF4C23B3758880297D9B09F754F92E3C3C69"
+      },
+      {
+        "Path": "tb/checkers/dma_protocol_checks.sv",
+        "Sha256": "3B163D52CA834325C84796CC024B743771699D7236D8592A8DA3988A04125D3E"
+      },
+      {
+        "Path": "tb/coverage/coverage_requirements.json",
+        "Sha256": "13C69B16AD9F2E958B7F7635C3DA8DC49BA6942579E69135385947980FD032C4"
+      },
+      {
+        "Path": "tb/coverage/dma_cov.sv",
+        "Sha256": "CC8EA23427CCEC7E2EDA727F18196450C5DA97FA3C1F2AC7A42B713349AA2541"
+      },
+      {
+        "Path": "tb/interfaces/axi_if.sv",
+        "Sha256": "4466274571CCFE1A690E3B3183E5C69F3327EAA47FBBF9363F7E63572301D6F9"
+      },
+      {
+        "Path": "tb/interfaces/axil_if.sv",
+        "Sha256": "3915447F753AB3DFC4B994F33E3C542EF866D5634ED8B1AD7678F03CBE336683"
+      },
+      {
+        "Path": "tb/interfaces/clk_rst_if.sv",
+        "Sha256": "E3BF454F061F4D215D16B723056A284178597A468A0C0202F1E4D02FF687187A"
+      },
+      {
+        "Path": "tb/interfaces/irq_if.sv",
+        "Sha256": "3523248CF3D6EB36DD75CB5631440F7C738210C10B02AF0AB902A61C16F09F79"
+      },
+      {
+        "Path": "tb/local/dma_local_checker_negative.sv",
+        "Sha256": "9F49C633C99DABC1D0224300300A1908AEB4A443AD2FF38B781FDDFB3744506C"
+      },
+      {
+        "Path": "tb/local/dma_local_checks.sv",
+        "Sha256": "D9505A5B2499C5733FB67330693649222AB89FED5BF8DA883E9D5A31AC8E1A55"
+      },
+      {
+        "Path": "tb/local/dma_local_test.sv",
+        "Sha256": "D13551CBC01C15FA60467E7F649109CF9687F35460C35463053B07CD7BE5581B"
+      },
+      {
+        "Path": "tb/mem/axi_mem_model.sv",
+        "Sha256": "6C6C65767AF601512E0DE4219AB86377176DAACE77475CB1E0BA900DD5A7DC2A"
+      },
+      {
+        "Path": "tb/mem/mem_bkdr_if.sv",
+        "Sha256": "088637D81B6F83E786EBF42E3909619D6F87CA61B2E32C4A7AF21002B844DC33"
+      },
+      {
+        "Path": "tb/tb_pkg.sv",
+        "Sha256": "EC10BD68284D8E600793D35D38506CCA6E53B218851014209FB749E1D9608A89"
+      },
+      {
+        "Path": "tb/tb_top.sv",
+        "Sha256": "28E0F10C0658C2CA77CFFF9B1297A6065B8C7600E17C02E205CE46B35C6B4A6C"
+      },
+      {
+        "Path": "tb/unit/engine_aw_w_test.sv",
+        "Sha256": "863CFD5CEA75C90FE22793926337221112BC5A7FF7FB9B7F410138471D799F36"
+      },
+      {
+        "Path": "tb/unit/mem_model_test.sv",
+        "Sha256": "CDEB9577037AA23D0E06AFC50C7574642A8B6C7206FA3F40DA5739CC02D08FD0"
+      },
+      {
+        "Path": "tb/unit/regs_event_test.sv",
+        "Sha256": "65E1FE2D9B0516B3B9282C6F6676C4745C3202E0F5FBBDC2F6320811D88FD42E"
+      },
+      {
+        "Path": "tb/unit/rv_stability_test.sv",
+        "Sha256": "54FA3A25B257EC6C288ED2514235468A78CCD1A9B1E5EF82E39182AB92A03778"
+      },
+      {
+        "Path": "tb/uvm/dma_uvm_pkg.sv",
+        "Sha256": "CEAF7C78BCBD5C950E0376D7278593F55FFAFA60AFBB84289E59230BA29CE9AC"
+      }
+    ],
+    "MemoryEvidence": "Whole-memory comparisons by the independent UVM scoreboard; memory contents are not dumped in this VCD."
+  },
+  "OriginalReportSha256": {
+    "WriteCapture": "b9f29ae61fdf6577cf59e5a03bc269abf509faa462cc5bdc55ac55bebb7daa23",
+    "ResetRegression": "efdfa908c6ddda65f9923da9541cac31ae2c5b73108b7d8c90d5f51c77889b7e"
+  },
+  "Rendering": {
+    "Script": "scripts/render_waveforms.py",
+    "ScriptSha256": "6badc5918d82e7d1f963b0a386243369de9d720080a53ef134db4adef1f2941f",
+    "Events": "docs/results/waveform_events.json",
+    "EventsSha256": "e75fa595e4f55db9bf992bdae12b60aab862466ce383f2724ab8bed7d24b05af",
+    "Artifacts": [
+      {
+        "Path": "docs/images/axi_write_deadlock.png",
+        "Sha256": "d9c552f29c6dcb17ea202b469b37a3ef18b56a6cd00f97fa575feb61cb723f2d"
+      },
+      {
+        "Path": "docs/images/axi_write_deadlock.svg",
+        "Sha256": "64a8f675203e5169e52cfae2e1f1a8c6a3bc5a3a8dbccf59dcadd979f2081b88"
+      },
+      {
+        "Path": "docs/images/dma_architecture.png",
+        "Sha256": "c86cff4e737c19b96146c4ca2da003c3a856fb6d89b519947d9356fedd9a6ade"
+      },
+      {
+        "Path": "docs/images/dma_architecture.svg",
+        "Sha256": "b1ce8cf8c29172d4cda122e1c0be41449350e4a970d3d03e9bc32257b1218b4a"
+      },
+      {
+        "Path": "docs/images/reset_recovery.png",
+        "Sha256": "3efa8d8eeb75c4a78a86a631ae9d4250e41cf2ef0e418e34b5799ce3f982ad19"
+      },
+      {
+        "Path": "docs/images/reset_recovery.svg",
+        "Sha256": "cef4bf088bdc683ce1fdbf3eb935ca0aaa6f1962a400873ee93c1ae11083229b"
+      }
+    ]
+  }
+}
