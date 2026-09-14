@@ -1,0 +1,42 @@
+{
+  "TestSeedRuns": 39,
+  "Passed": 39,
+  "Failed": 0,
+  "TimedOut": 0,
+  "AutomaticRetries": 0,
+  "ScoreboardTotals": {
+    "starts": 231,
+    "completed": 216,
+    "reset_aborts": 15,
+    "busy_starts": 3,
+    "memory_bytes_checked": 15138816
+  },
+  "SeededDescriptors": 96,
+  "SeededRuntimes": [
+    {
+      "Test": "seeded_copy_test",
+      "Seed": 1,
+      "RuntimeSeconds": 122.416
+    },
+    {
+      "Test": "seeded_copy_test",
+      "Seed": 7,
+      "RuntimeSeconds": 113.015
+    },
+    {
+      "Test": "seeded_copy_test",
+      "Seed": 42,
+      "RuntimeSeconds": 97.773
+    }
+  ],
+  "_Publication": {
+    "Kind": "sanitized-historical-review-copy",
+    "OriginalArtifactSha256": "61f53bd677c71959e2ccf5fe3075621527c0474916d9cb0d9a11608da07519f8",
+    "Changes": [
+      "Machine paths replaced with portable aliases",
+      "Date stamps removed from run and artifact path names"
+    ],
+    "HashScope": "Existing source, report, manifest hashes and provenance signatures describe the original executed artifacts, not these rewritten review copies or the current working tree.",
+    "Replay": "Regenerate raw outputs with the runners for machine validation; this review copy is not a strict-merger input."
+  }
+}

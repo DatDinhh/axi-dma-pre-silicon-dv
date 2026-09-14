@@ -1,0 +1,74 @@
+{
+  "SchemaVersion": 1,
+  "Mode": "capability-probes",
+  "RunId": "6cb82845",
+  "StartedUtc": "2026-09-13T20:45:25.1996198Z",
+  "CompletedUtc": "2026-09-13T20:45:51.3521637Z",
+  "GitRevision": "c5f730ddb48d09e6effee9ebe9ac23aac5003cc1",
+  "GitDirty": true,
+  "ToolVersion": "Model Technology ModelSim - INTEL FPGA STARTER EDITION vsim 2020.1 Simulator 2020.02 Feb 28 2020",
+  "CoverageEnabled": false,
+  "SvaEnabled": false,
+  "Seeds": [
+    1
+  ],
+  "TimeoutSeconds": 60,
+  "Compile": null,
+  "Results": [
+    {
+      "Test": "uvm_probe",
+      "Seed": 1,
+      "PlusArgs": [],
+      "Result": "PASS",
+      "Reason": "",
+      "ExitCode": 0,
+      "TimedOut": false,
+      "RuntimeSeconds": 8.293,
+      "LogPath": "output/6cb82845/uvm_probe/probe.log"
+    },
+    {
+      "Test": "constrained_random_probe",
+      "Seed": 1,
+      "PlusArgs": [],
+      "Result": "UNAVAILABLE",
+      "Reason": "Feature could not run because a simulator license/feature was unavailable.",
+      "ExitCode": 4,
+      "TimedOut": false,
+      "RuntimeSeconds": 5.363,
+      "LogPath": "output/6cb82845/constrained_random_probe/probe.log"
+    },
+    {
+      "Test": "covergroup_probe",
+      "Seed": 1,
+      "PlusArgs": [],
+      "Result": "UNAVAILABLE",
+      "Reason": "Feature could not run because a simulator license/feature was unavailable.",
+      "ExitCode": 12,
+      "TimedOut": false,
+      "RuntimeSeconds": 5.423,
+      "LogPath": "output/6cb82845/covergroup_probe/probe.log"
+    },
+    {
+      "Test": "assertion_probe",
+      "Seed": 1,
+      "PlusArgs": [],
+      "Result": "UNSUPPORTED",
+      "Reason": "Simulator rejected or did not execute the feature; inspect the probe log.",
+      "ExitCode": 0,
+      "TimedOut": false,
+      "RuntimeSeconds": 6.608,
+      "LogPath": "output/6cb82845/assertion_probe/probe.log"
+    }
+  ],
+  "OriginalReport": "output/6cb82845/summary.json",
+  "_Publication": {
+    "Kind": "sanitized-historical-review-copy",
+    "OriginalArtifactSha256": "143cbfba64fcfd3ac92f4522aa52e14b1fcd751c0bcf154f2c2fc67fb0b11e40",
+    "Changes": [
+      "Machine paths replaced with portable aliases",
+      "Date stamps removed from run and artifact path names"
+    ],
+    "HashScope": "Existing source, report, manifest hashes and provenance signatures describe the original executed artifacts, not these rewritten review copies or the current working tree.",
+    "Replay": "Regenerate raw outputs with the runners for machine validation; this review copy is not a strict-merger input."
+  }
+}

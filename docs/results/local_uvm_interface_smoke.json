@@ -1,0 +1,76 @@
+{
+  "SchemaVersion": 1,
+  "Mode": "regression",
+  "RunId": "8f451db2",
+  "StartedUtc": "2026-09-14T03:36:11.4021316Z",
+  "CompletedUtc": "2026-09-14T03:36:33.1074339Z",
+  "GitRevision": "c5f730ddb48d09e6effee9ebe9ac23aac5003cc1",
+  "GitDirty": true,
+  "ToolVersion": "Model Technology ModelSim - INTEL FPGA STARTER EDITION vsim 2020.1 Simulator 2020.02 Feb 28 2020",
+  "VsimPath": "{simulator}/win32aloem/vsim.exe",
+  "UvmPath": "{simulator}/verilog_src/uvm-1.2/src",
+  "CoverageEnabled": false,
+  "SvaEnabled": false,
+  "UvmNoDpiEnabled": true,
+  "DpiExportModeRequested": "Auto",
+  "DpiExportModeResolved": "Disabled",
+  "DpiExportModeReason": "Pure-SV UVM_NO_DPI build on Windows ModelSim Intel FPGA Starter 2020.1: avoid unused generated export DLL loading.",
+  "Tests": [
+    "smoke_test"
+  ],
+  "Seeds": [
+    7
+  ],
+  "PlusArgs": [
+    "+AXI_AW_WAIT_W=1",
+    "+AXI_STALL_MAX=7"
+  ],
+  "TimeoutSeconds": 180,
+  "OutputDirectory": "{repo}/output/8f451db2",
+  "SourceManifestPath": "{repo}/output/8f451db2/source_manifest.json",
+  "SourceManifestSha256": "A65997E3B695BE28D0CABF49AB1EE2A870A3EEACADEEFDC56B86594F0DB6F7DE",
+  "RequirementCoverageMetric": "observed_requirement_bins",
+  "Compile": {
+    "Result": "PASS",
+    "Reason": "",
+    "ExitCode": 0,
+    "TimedOut": false,
+    "RuntimeSeconds": 7.402,
+    "LogPath": "{repo}/output/8f451db2/compile.log"
+  },
+  "Results": [
+    {
+      "Test": "smoke_test",
+      "Seed": 7,
+      "PlusArgs": [
+        "+UVM_TESTNAME=smoke_test",
+        "+UVM_NO_RELNOTES",
+        "+TEST_SEED=7",
+        "+COVERAGE_FILE={repo}/output/8f451db2/smoke_test_seed_7/requirement_coverage.tsv",
+        "+AXI_AW_WAIT_W=1",
+        "+AXI_STALL_MAX=7",
+        "+AXI_STALL_SEED=7"
+      ],
+      "Result": "PASS",
+      "Reason": "",
+      "GitRevision": "c5f730ddb48d09e6effee9ebe9ac23aac5003cc1",
+      "GitDirty": true,
+      "ToolVersion": "Model Technology ModelSim - INTEL FPGA STARTER EDITION vsim 2020.1 Simulator 2020.02 Feb 28 2020",
+      "ExitCode": 0,
+      "TimedOut": false,
+      "RuntimeSeconds": 7.689,
+      "LogPath": "{repo}/output/8f451db2/smoke_test_seed_7/simulation.log",
+      "CoveragePath": "{repo}/output/8f451db2/smoke_test_seed_7/requirement_coverage.tsv"
+    }
+  ],
+  "_Publication": {
+    "Kind": "sanitized-historical-review-copy",
+    "OriginalArtifactSha256": "14e3cf16e3bad30a3db814f254da8054f3e9842b809c2c65696e1dd89bfea930",
+    "Changes": [
+      "Machine paths replaced with portable aliases",
+      "Date stamps removed from run and artifact path names"
+    ],
+    "HashScope": "Existing source, report, manifest hashes and provenance signatures describe the original executed artifacts, not these rewritten review copies or the current working tree.",
+    "Replay": "Regenerate raw outputs with the runners for machine validation; this review copy is not a strict-merger input."
+  }
+}

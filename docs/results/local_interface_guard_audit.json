@@ -1,0 +1,29 @@
+{
+  "Records": [
+    {
+      "Path": "tb\\interfaces\\axi_if.sv",
+      "BeforeSha256": "be4dccdf3b7f0595ee7af7f306b814ea7fa200ef53a89293e0aeac6b46c0c385",
+      "DefaultBranchUnchanged": true,
+      "ClockingBlocksGuarded": 3,
+      "AfterSha256": "4466274571ccfe1a690e3b3183e5c69f3327eaa47fbbf9363f7e63572301d6f9"
+    },
+    {
+      "Path": "tb\\interfaces\\axil_if.sv",
+      "BeforeSha256": "9c7dec8184560e35eb62256a22db85ca3e00a74761102e9d474303469bae4f08",
+      "DefaultBranchUnchanged": true,
+      "ClockingBlocksGuarded": 2,
+      "AfterSha256": "3915447f753ab3dfc4b994f33e3c542ef866d5634ed8b1ad7678f03cbe336683"
+    }
+  ],
+  "_Publication": {
+    "Kind": "sanitized-historical-review-copy",
+    "OriginalArtifactSha256": "e5473b13b671e3b1b84568a15d145992e12eb503ae3141dceff3dff4144d5e42",
+    "Changes": [
+      "Machine paths replaced with portable aliases",
+      "Date stamps removed from run and artifact path names",
+      "Original top-level array retained under Records to attach publication metadata"
+    ],
+    "HashScope": "Existing source, report, manifest hashes and provenance signatures describe the original executed artifacts, not these rewritten review copies or the current working tree.",
+    "Replay": "Regenerate raw outputs with the runners for machine validation; this review copy is not a strict-merger input."
+  }
+}

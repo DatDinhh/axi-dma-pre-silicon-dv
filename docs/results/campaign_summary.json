@@ -1,0 +1,58 @@
+{
+  "Date": "2026-09-13",
+  "CleanFullSweep": false,
+  "FinalSweep": {
+    "Total": 39,
+    "Passed": 37,
+    "ToolLoadFailures": 2,
+    "Timeouts": 0
+  },
+  "BoundedTargetedReruns": {
+    "Total": 2,
+    "Passed": 1,
+    "ToolLoadFailures": 1
+  },
+  "DistinctFinalSourceCombinationsPassing": 38,
+  "DistinctCombinationsPlanned": 39,
+  "Unresolved": [
+    {
+      "Test": "out_of_range_test",
+      "Seed": 1,
+      "Reason": "ModelSim SIGSEGV while loading export_tramp.dll before UVM test execution, repeated on the single bounded rerun."
+    }
+  ],
+  "DutOrUvmFailuresInCompletedFinalSimulations": 0,
+  "SeededCopyRunsPassed": 3,
+  "SeededCopyDescriptors": 96,
+  "FaultInjectionRunsPassed": 6,
+  "ScoreboardActivityFor38PassingRuns": {
+    "starts": 206,
+    "completed": 191,
+    "reset_aborts": 15,
+    "busy_starts": 3,
+    "memory_bytes_checked": 12517376
+  },
+  "SourcesIdentical": true,
+  "StandaloneUnitExpectationsMet": 14,
+  "NativeCoverageClosureClaimed": false,
+  "OriginalFinalSweep": "output/portfolio-404eb2dd/summary.json",
+  "Evidence": [
+    "final_portfolio_sweep.json",
+    "final_targeted_reruns.json",
+    "verified_source_manifest.json",
+    "unit_checks.json",
+    "scoreboard_expected_failure.json",
+    "simulator_capabilities.json",
+    "initial_portfolio_attempt.json"
+  ],
+  "_Publication": {
+    "Kind": "sanitized-historical-review-copy",
+    "OriginalArtifactSha256": "f4f5492f73b86f65d028773460a30ac2058e02a197d1c528c10cac1d1c2f2df1",
+    "Changes": [
+      "Machine paths replaced with portable aliases",
+      "Date stamps removed from run and artifact path names"
+    ],
+    "HashScope": "Existing source, report, manifest hashes and provenance signatures describe the original executed artifacts, not these rewritten review copies or the current working tree.",
+    "Replay": "Regenerate raw outputs with the runners for machine validation; this review copy is not a strict-merger input."
+  }
+}

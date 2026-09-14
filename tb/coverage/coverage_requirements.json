@@ -1,0 +1,711 @@
+{
+  "schema_version": 1,
+  "metric": "observed_requirement_bins",
+  "scope": "AXI DMA baseline v1, 32-bit aligned single-beat serialized transfers in 64 KiB memory",
+  "closure_rule": "Every required bin has at least one hit from a PASS result with identical complete source and catalog hashes. This finite scenario metric is separate from native covergroup, RTL code, assertion, and universal functional correctness claims.",
+  "sampling": "Accepted AXI/AXI-Lite handshakes and passive reset/timing observations; terminal descriptor bins are sampled after independent scoreboard checks. Failed runs do not contribute closure evidence.",
+  "bins": [
+    {
+      "id": "R01.copy_len_4",
+      "requirement_id": "R01",
+      "description": "A 4-byte descriptor completed successfully and passed independent checking.",
+      "required": true,
+      "tests": [
+        "descriptor_corner_test",
+        "smoke_test",
+        "copy_test"
+      ]
+    },
+    {
+      "id": "R01.copy_len_16",
+      "requirement_id": "R01",
+      "description": "A 16-byte descriptor completed successfully and passed independent checking.",
+      "required": true,
+      "tests": [
+        "descriptor_corner_test",
+        "smoke_test",
+        "copy_test"
+      ]
+    },
+    {
+      "id": "R01.copy_len_64",
+      "requirement_id": "R01",
+      "description": "A 64-byte descriptor completed successfully and passed independent checking.",
+      "required": true,
+      "tests": [
+        "descriptor_corner_test",
+        "smoke_test",
+        "copy_test"
+      ]
+    },
+    {
+      "id": "R01.copy_len_128",
+      "requirement_id": "R01",
+      "description": "A 128-byte descriptor completed successfully and passed independent checking.",
+      "required": true,
+      "tests": [
+        "descriptor_corner_test",
+        "smoke_test",
+        "copy_test"
+      ]
+    },
+    {
+      "id": "R01.copy_len_512",
+      "requirement_id": "R01",
+      "description": "A 512-byte descriptor completed successfully and passed independent checking.",
+      "required": true,
+      "tests": [
+        "busy_start_test"
+      ]
+    },
+    {
+      "id": "R02.read_response_okay",
+      "requirement_id": "R02",
+      "description": "Observed an accepted OKAY R response with RLAST set.",
+      "required": true,
+      "tests": [
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "R02.write_response_okay",
+      "requirement_id": "R02",
+      "description": "Observed an accepted OKAY B response.",
+      "required": true,
+      "tests": [
+        "smoke_test"
+      ]
+    },
+    {
+      "id": "R03.axi_ar_stall",
+      "requirement_id": "R03",
+      "description": "Observed AXI AR VALID with READY low; always-active protocol checker validates stability.",
+      "required": true,
+      "tests": [
+        "stalled portfolio configurations"
+      ]
+    },
+    {
+      "id": "R03.axi_aw_stall",
+      "requirement_id": "R03",
+      "description": "Observed AXI AW VALID with READY low; always-active protocol checker validates stability.",
+      "required": true,
+      "tests": [
+        "stalled portfolio configurations"
+      ]
+    },
+    {
+      "id": "R03.axi_w_stall",
+      "requirement_id": "R03",
+      "description": "Observed AXI W VALID with READY low; always-active protocol checker validates stability.",
+      "required": true,
+      "tests": [
+        "stalled portfolio configurations"
+      ]
+    },
+    {
+      "id": "R03.axil_r_stall",
+      "requirement_id": "R03",
+      "description": "Observed AXI-Lite R VALID with READY low.",
+      "required": true,
+      "tests": [
+        "csr_access_test"
+      ]
+    },
+    {
+      "id": "R03.axil_b_stall",
+      "requirement_id": "R03",
+      "description": "Observed AXI-Lite B VALID with READY low.",
+      "required": true,
+      "tests": [
+        "csr_access_test"
+      ]
+    },
+    {
+      "id": "R04.wvalid_before_aw_accept",
+      "requirement_id": "R04",
+      "description": "Observed WVALID while AWVALID was waiting for AWREADY before address acceptance.",
+      "required": true,
+      "tests": [
+        "AXI_AW_WAIT_W portfolio configurations"
+      ]
+    },
+    {
+      "id": "R05.zero_length",
+      "requirement_id": "R05",
+      "description": "Zero-length descriptor reached terminal length error.",
+      "required": true,
+      "tests": [
+        "len_zero_test"
+      ]
+    },
+    {
+      "id": "R05.unaligned_src",
+      "requirement_id": "R05",
+      "description": "Descriptor with unaligned SRC reached terminal alignment error.",
+      "required": true,
+      "tests": [
+        "unaligned_addr_test",
+        "descriptor_corner_test"
+      ]
+    },
+    {
+      "id": "R05.unaligned_dst",
+      "requirement_id": "R05",
+      "description": "Descriptor with unaligned DST reached terminal alignment error.",
+      "required": true,
+      "tests": [
+        "unaligned_addr_test",
+        "descriptor_corner_test"
+      ]
+    },
+    {
+      "id": "R05.unaligned_len",
+      "requirement_id": "R05",
+      "description": "Descriptor with unaligned LEN reached terminal alignment error.",
+      "required": true,
+      "tests": [
+        "unaligned_addr_test",
+        "descriptor_corner_test"
+      ]
+    },
+    {
+      "id": "R06.src_range_error",
+      "requirement_id": "R06",
+      "description": "SRC end exceeded 64 KiB and descriptor reached terminal range error.",
+      "required": true,
+      "tests": [
+        "out_of_range_test",
+        "descriptor_corner_test"
+      ]
+    },
+    {
+      "id": "R06.src_end_of_memory",
+      "requirement_id": "R06",
+      "description": "Successful descriptor ended SRC exactly at address 65536.",
+      "required": true,
+      "tests": [
+        "descriptor_corner_test"
+      ]
+    },
+    {
+      "id": "R06.src_page_cross",
+      "requirement_id": "R06",
+      "description": "Successful descriptor crossed a SRC 4 KiB page boundary using legal single-beat transactions.",
+      "required": true,
+      "tests": [
+        "descriptor_corner_test"
+      ]
+    },
+    {
+      "id": "R06.dst_range_error",
+      "requirement_id": "R06",
+      "description": "DST end exceeded 64 KiB and descriptor reached terminal range error.",
+      "required": true,
+      "tests": [
+        "out_of_range_test",
+        "descriptor_corner_test"
+      ]
+    },
+    {
+      "id": "R06.dst_end_of_memory",
+      "requirement_id": "R06",
+      "description": "Successful descriptor ended DST exactly at address 65536.",
+      "required": true,
+      "tests": [
+        "descriptor_corner_test"
+      ]
+    },
+    {
+      "id": "R06.dst_page_cross",
+      "requirement_id": "R06",
+      "description": "Successful descriptor crossed a DST 4 KiB page boundary using legal single-beat transactions.",
+      "required": true,
+      "tests": [
+        "descriptor_corner_test"
+      ]
+    },
+    {
+      "id": "R06.address_sum_overflow",
+      "requirement_id": "R06",
+      "description": "33-bit SRC+LEN or DST+LEN exceeded the 32-bit address space and descriptor reached terminal range error.",
+      "required": true,
+      "tests": [
+        "descriptor_corner_test"
+      ]
+    },
+    {
+      "id": "R07.read_ctrl",
+      "requirement_id": "R07",
+      "description": "Observed accepted OKAY read of CTRL.",
+      "required": true,
+      "tests": [
+        "csr_access_test",
+        "all scenario tests"
+      ]
+    },
+    {
+      "id": "R07.read_src",
+      "requirement_id": "R07",
+      "description": "Observed accepted OKAY read of SRC.",
+      "required": true,
+      "tests": [
+        "csr_access_test",
+        "all scenario tests"
+      ]
+    },
+    {
+      "id": "R07.read_dst",
+      "requirement_id": "R07",
+      "description": "Observed accepted OKAY read of DST.",
+      "required": true,
+      "tests": [
+        "csr_access_test",
+        "all scenario tests"
+      ]
+    },
+    {
+      "id": "R07.read_len",
+      "requirement_id": "R07",
+      "description": "Observed accepted OKAY read of LEN.",
+      "required": true,
+      "tests": [
+        "csr_access_test",
+        "all scenario tests"
+      ]
+    },
+    {
+      "id": "R07.read_status",
+      "requirement_id": "R07",
+      "description": "Observed accepted OKAY read of STATUS.",
+      "required": true,
+      "tests": [
+        "csr_access_test",
+        "all scenario tests"
+      ]
+    },
+    {
+      "id": "R07.read_irq_status",
+      "requirement_id": "R07",
+      "description": "Observed accepted OKAY read of IRQ_STATUS.",
+      "required": true,
+      "tests": [
+        "csr_access_test",
+        "all scenario tests"
+      ]
+    },
+    {
+      "id": "R07.read_err_code",
+      "requirement_id": "R07",
+      "description": "Observed accepted OKAY read of ERR_CODE.",
+      "required": true,
+      "tests": [
+        "csr_access_test",
+        "all scenario tests"
+      ]
+    },
+    {
+      "id": "R07.read_bytes_remain",
+      "requirement_id": "R07",
+      "description": "Observed accepted OKAY read of BYTES_REMAIN.",
+      "required": true,
+      "tests": [
+        "csr_access_test",
+        "all scenario tests"
+      ]
+    },
+    {
+      "id": "R07.write_ctrl",
+      "requirement_id": "R07",
+      "description": "Observed accepted full-strobe OKAY write to CTRL; RO writes are checked to be ignored.",
+      "required": true,
+      "tests": [
+        "csr_access_test",
+        "all scenario tests"
+      ]
+    },
+    {
+      "id": "R07.write_src",
+      "requirement_id": "R07",
+      "description": "Observed accepted full-strobe OKAY write to SRC; RO writes are checked to be ignored.",
+      "required": true,
+      "tests": [
+        "csr_access_test",
+        "all scenario tests"
+      ]
+    },
+    {
+      "id": "R07.write_dst",
+      "requirement_id": "R07",
+      "description": "Observed accepted full-strobe OKAY write to DST; RO writes are checked to be ignored.",
+      "required": true,
+      "tests": [
+        "csr_access_test",
+        "all scenario tests"
+      ]
+    },
+    {
+      "id": "R07.write_len",
+      "requirement_id": "R07",
+      "description": "Observed accepted full-strobe OKAY write to LEN; RO writes are checked to be ignored.",
+      "required": true,
+      "tests": [
+        "csr_access_test",
+        "all scenario tests"
+      ]
+    },
+    {
+      "id": "R07.write_irq_status",
+      "requirement_id": "R07",
+      "description": "Observed accepted full-strobe OKAY write to IRQ_STATUS; RO writes are checked to be ignored.",
+      "required": true,
+      "tests": [
+        "csr_access_test",
+        "all scenario tests"
+      ]
+    },
+    {
+      "id": "R07.write_status",
+      "requirement_id": "R07",
+      "description": "Observed accepted full-strobe OKAY write to STATUS; RO writes are checked to be ignored.",
+      "required": true,
+      "tests": [
+        "csr_access_test",
+        "all scenario tests"
+      ]
+    },
+    {
+      "id": "R07.write_err_code",
+      "requirement_id": "R07",
+      "description": "Observed accepted full-strobe OKAY write to ERR_CODE; RO writes are checked to be ignored.",
+      "required": true,
+      "tests": [
+        "csr_access_test",
+        "all scenario tests"
+      ]
+    },
+    {
+      "id": "R07.read_unaligned",
+      "requirement_id": "R07",
+      "description": "Observed accepted SLVERR read at an unaligned CSR address.",
+      "required": true,
+      "tests": [
+        "csr_access_test"
+      ]
+    },
+    {
+      "id": "R07.read_unmapped",
+      "requirement_id": "R07",
+      "description": "Observed accepted SLVERR read at an unmapped CSR address.",
+      "required": true,
+      "tests": [
+        "csr_access_test"
+      ]
+    },
+    {
+      "id": "R07.write_unaligned",
+      "requirement_id": "R07",
+      "description": "Observed accepted SLVERR write at an unaligned CSR address.",
+      "required": true,
+      "tests": [
+        "csr_access_test"
+      ]
+    },
+    {
+      "id": "R07.write_unmapped",
+      "requirement_id": "R07",
+      "description": "Observed accepted SLVERR write at an unmapped CSR address.",
+      "required": true,
+      "tests": [
+        "csr_access_test"
+      ]
+    },
+    {
+      "id": "R07.strobe_partial",
+      "requirement_id": "R07",
+      "description": "Observed accepted SLVERR write with partial write strobes.",
+      "required": true,
+      "tests": [
+        "csr_access_test"
+      ]
+    },
+    {
+      "id": "R07.strobe_zero",
+      "requirement_id": "R07",
+      "description": "Observed accepted SLVERR write with zero write strobes.",
+      "required": true,
+      "tests": [
+        "csr_access_test"
+      ]
+    },
+    {
+      "id": "R07.axil_aw_first",
+      "requirement_id": "R07",
+      "description": "Observed a completed AXI-Lite write with AW/W handshake order aw_first.",
+      "required": true,
+      "tests": [
+        "csr_access_test"
+      ]
+    },
+    {
+      "id": "R07.axil_w_first",
+      "requirement_id": "R07",
+      "description": "Observed a completed AXI-Lite write with AW/W handshake order w_first.",
+      "required": true,
+      "tests": [
+        "csr_access_test"
+      ]
+    },
+    {
+      "id": "R07.axil_same_cycle",
+      "requirement_id": "R07",
+      "description": "Observed a completed AXI-Lite write with AW/W handshake order same_cycle.",
+      "required": true,
+      "tests": [
+        "csr_access_test"
+      ]
+    },
+    {
+      "id": "R08.success_irq_enabled",
+      "requirement_id": "R08",
+      "description": "Successful descriptor began with IRQ enabled.",
+      "required": true,
+      "tests": [
+        "irq_test",
+        "seeded_copy_test"
+      ]
+    },
+    {
+      "id": "R08.success_irq_masked",
+      "requirement_id": "R08",
+      "description": "Successful descriptor began with IRQ masked.",
+      "required": true,
+      "tests": [
+        "irq_test",
+        "seeded_copy_test"
+      ]
+    },
+    {
+      "id": "R08.pending_masked",
+      "requirement_id": "R08",
+      "description": "Accepted IRQ_STATUS read showed pending event with sampled IRQ low.",
+      "required": true,
+      "tests": [
+        "irq_test"
+      ]
+    },
+    {
+      "id": "R08.pending_asserted",
+      "requirement_id": "R08",
+      "description": "Accepted IRQ_STATUS read showed pending event with sampled IRQ high.",
+      "required": true,
+      "tests": [
+        "irq_test",
+        "all scenario tests"
+      ]
+    },
+    {
+      "id": "R08.w1c_done",
+      "requirement_id": "R08",
+      "description": "Observed accepted IRQ_STATUS command with only the DONE clear bit set.",
+      "required": true,
+      "tests": [
+        "irq_test",
+        "all scenario tests"
+      ]
+    },
+    {
+      "id": "R08.w1c_err",
+      "requirement_id": "R08",
+      "description": "Observed accepted IRQ_STATUS command with only the ERR clear bit set.",
+      "required": true,
+      "tests": [
+        "irq_test",
+        "all scenario tests"
+      ]
+    },
+    {
+      "id": "R08.ctrl_clear_err",
+      "requirement_id": "R08",
+      "description": "Observed accepted CTRL.CLR_ERR command.",
+      "required": true,
+      "tests": [
+        "irq_test",
+        "descriptor_corner_test"
+      ]
+    },
+    {
+      "id": "R09.done_and_err",
+      "requirement_id": "R09",
+      "description": "Accepted STATUS or IRQ_STATUS read observed accumulated DONE and ERR.",
+      "required": true,
+      "tests": [
+        "irq_test"
+      ]
+    },
+    {
+      "id": "R09.recovery_after_error",
+      "requirement_id": "R09",
+      "description": "Successful checked descriptor followed a terminal error.",
+      "required": true,
+      "tests": [
+        "descriptor_corner_test",
+        "read_error_test",
+        "write_error_test"
+      ]
+    },
+    {
+      "id": "R10.busy_start",
+      "requirement_id": "R10",
+      "description": "Scoreboard observed START while an active descriptor was awaiting terminal observation.",
+      "required": true,
+      "tests": [
+        "busy_start_test"
+      ]
+    },
+    {
+      "id": "R11.reset_ar",
+      "requirement_id": "R11",
+      "description": "Shared reset observed with AR request/response phase active immediately before assertion.",
+      "required": true,
+      "tests": [
+        "reset_mid_transfer_test"
+      ]
+    },
+    {
+      "id": "R11.reset_r",
+      "requirement_id": "R11",
+      "description": "Shared reset observed with R request/response phase active immediately before assertion.",
+      "required": true,
+      "tests": [
+        "reset_mid_transfer_test"
+      ]
+    },
+    {
+      "id": "R11.reset_aw",
+      "requirement_id": "R11",
+      "description": "Shared reset observed with AW request/response phase active immediately before assertion.",
+      "required": true,
+      "tests": [
+        "reset_mid_transfer_test"
+      ]
+    },
+    {
+      "id": "R11.reset_w",
+      "requirement_id": "R11",
+      "description": "Shared reset observed with W request/response phase active immediately before assertion.",
+      "required": true,
+      "tests": [
+        "reset_mid_transfer_test"
+      ]
+    },
+    {
+      "id": "R11.reset_b",
+      "requirement_id": "R11",
+      "description": "Shared reset observed with B request/response phase active immediately before assertion.",
+      "required": true,
+      "tests": [
+        "reset_mid_transfer_test"
+      ]
+    },
+    {
+      "id": "R11.recovery_after_reset",
+      "requirement_id": "R11",
+      "description": "Successful checked descriptor followed an observed active-transfer reset cancellation.",
+      "required": true,
+      "tests": [
+        "reset_mid_transfer_test"
+      ]
+    },
+    {
+      "id": "R12.read_slverr_first",
+      "requirement_id": "R12",
+      "description": "Accepted RRESP SLVERR at the first response position of its descriptor.",
+      "required": true,
+      "tests": [
+        "read_error_test"
+      ]
+    },
+    {
+      "id": "R12.read_slverr_middle",
+      "requirement_id": "R12",
+      "description": "Accepted RRESP SLVERR at the middle response position of its descriptor.",
+      "required": true,
+      "tests": [
+        "read_error_test"
+      ]
+    },
+    {
+      "id": "R12.read_slverr_last",
+      "requirement_id": "R12",
+      "description": "Accepted RRESP SLVERR at the last response position of its descriptor.",
+      "required": true,
+      "tests": [
+        "read_error_test"
+      ]
+    },
+    {
+      "id": "R12.write_slverr_first",
+      "requirement_id": "R12",
+      "description": "Accepted BRESP SLVERR at the first response position of its descriptor.",
+      "required": true,
+      "tests": [
+        "write_error_test"
+      ]
+    },
+    {
+      "id": "R12.write_slverr_middle",
+      "requirement_id": "R12",
+      "description": "Accepted BRESP SLVERR at the middle response position of its descriptor.",
+      "required": true,
+      "tests": [
+        "write_error_test"
+      ]
+    },
+    {
+      "id": "R12.write_slverr_last",
+      "requirement_id": "R12",
+      "description": "Accepted BRESP SLVERR at the last response position of its descriptor.",
+      "required": true,
+      "tests": [
+        "write_error_test"
+      ]
+    }
+  ],
+  "exclusions": [
+    {
+      "id": "AXI_R_B_VALID_BACKPRESSURE",
+      "reason": "DMA consumes each R/B response in the corresponding response state; memory response latency does not by itself create VALID&&!READY. Request stalls and AXI-Lite response stalls are selected instead."
+    },
+    {
+      "id": "ALL_POSSIBLE_CROSSES",
+      "reason": "No Cartesian product is claimed. The 70 named scenario bins are the reviewed finite baseline selection, not all descriptors, timing combinations, or cross coverage."
+    },
+    {
+      "id": "R13_R14_R16_R17_UNIT_REQUIREMENTS",
+      "requirement_ids": [
+        "R13",
+        "R14",
+        "R16",
+        "R17"
+      ],
+      "reason": "Malformed RLAST, responder internals, checker sensitivity, runner integrity and register event priority have separate unit-check evidence; they are not sampled by this integration catalog."
+    },
+    {
+      "id": "NATIVE_COVERGROUP_CODE_ASSERTION_COVERAGE",
+      "reason": "Requires supported simulator runtime and separate saved coverage databases; optional native covergroups are diagnostic and not counted here."
+    },
+    {
+      "id": "DECERR_RESPONSE",
+      "reason": "Baseline memory responder injects SLVERR only; DECERR response sweeps are not implemented and not claimed."
+    },
+    {
+      "id": "FULL_RESET_CSR_CROSS",
+      "reason": "The selected reset bins observe five DMA AXI phases. Reset with split AXI-Lite requests or every CSR/software timing combination is outside this catalog."
+    },
+    {
+      "id": "UNSUPPORTED_DUT_FEATURES",
+      "reason": "Multi-beat bursts, outstanding IDs, overlap/memmove, unaligned byte copies, scatter-gather, CDC, coherency and DUT-only reset are outside the baseline specification."
+    }
+  ]
+}

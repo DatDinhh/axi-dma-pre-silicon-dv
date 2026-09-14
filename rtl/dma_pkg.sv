@@ -91,10 +91,11 @@ package dma_pkg;
     ERR_LEN_ZERO     = 8'd1,
     ERR_ALIGN        = 8'd2,
     ERR_RANGE        = 8'd3,
-    ERR_BUSY_START   = 8'd4,
+    ERR_BUSY_START   = 8'd4, // Reserved: this engine ignores START while busy.
     ERR_AXI_RRESP    = 8'd5,
     ERR_AXI_BRESP    = 8'd6,
-    ERR_TIMEOUT      = 8'd7
+    ERR_TIMEOUT      = 8'd7, // Reserved: no hardware timeout in this baseline.
+    ERR_AXI_PROTO    = 8'd8
   } err_code_t;
 
   //----------------------------------------------------------------------------
@@ -118,7 +119,9 @@ package dma_pkg;
     input addr_t       dst_addr,
     input int unsigned len_bytes
   );
-    if (busy)                          return ERR_BUSY_START;
+    // Busy START is ignored and must not generate a software-visible error.
+    // The caller must separately gate acceptance with !busy.
+    if (busy)                          return ERR_NONE;
     if (len_bytes == 0)                return ERR_LEN_ZERO;
     if (!is_data_aligned(src_addr))    return ERR_ALIGN;
     if (!is_data_aligned(dst_addr))    return ERR_ALIGN;

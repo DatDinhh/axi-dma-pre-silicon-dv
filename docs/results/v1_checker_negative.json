@@ -1,0 +1,31 @@
+{
+  "Test": "scoreboard_negative_test",
+  "Seed": 1,
+  "PlusArgs": [
+    "+UVM_TESTNAME=scoreboard_negative_test",
+    "+UVM_NO_RELNOTES",
+    "+TEST_SEED=1",
+    "+COVERAGE_FILE={repo}/output/22d91298/scoreboard_negative_test_seed_1/requirement_coverage.tsv",
+    "+AXI_STALL_SEED=1"
+  ],
+  "Result": "FAIL",
+  "Reason": "UVM reported an error or fatal.",
+  "GitRevision": "c5f730ddb48d09e6effee9ebe9ac23aac5003cc1",
+  "GitDirty": true,
+  "ToolVersion": "Model Technology ModelSim - INTEL FPGA STARTER EDITION vsim 2020.1 Simulator 2020.02 Feb 28 2020",
+  "ExitCode": 0,
+  "TimedOut": false,
+  "RuntimeSeconds": 4.59,
+  "LogPath": "{repo}/output/22d91298/scoreboard_negative_test_seed_1/simulation.log",
+  "CoveragePath": "{repo}/output/22d91298/scoreboard_negative_test_seed_1/requirement_coverage.tsv",
+  "_Publication": {
+    "Kind": "sanitized-historical-review-copy",
+    "OriginalArtifactSha256": "ce5513f4bbb7dd9eb52007da90bd8db55310e92861cd274e6ed356b36b778dbe",
+    "Changes": [
+      "Machine paths replaced with portable aliases",
+      "Date stamps removed from run and artifact path names"
+    ],
+    "HashScope": "Existing source, report, manifest hashes and provenance signatures describe the original executed artifacts, not these rewritten review copies or the current working tree.",
+    "Replay": "Regenerate raw outputs with the runners for machine validation; this review copy is not a strict-merger input."
+  }
+}

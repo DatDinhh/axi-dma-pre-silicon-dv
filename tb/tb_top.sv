@@ -65,6 +65,8 @@ module tb_top;
     .bkdr(memif)
   );
 
+  dma_protocol_checks u_protocol_checks (.axi(axi), .axil(axil));
+
   // DUT
   top_soc_dut #(
     .ADDR_WIDTH          (ADDR_WIDTH),
@@ -172,7 +174,9 @@ module tb_top;
     uvm_config_db#(virtual axi_if  #(ADDR_WIDTH, AXI_DATA_WIDTH, AXI_ID_WIDTH))::set(null, "*", "axi_vif", axi);
     uvm_config_db#(virtual irq_if)::set(null, "*", "irq_vif", irqif);
 
-    // NEW: backdoor memory VIF
+    uvm_config_db#(virtual clk_rst_if #(10ns,5))::set(null, "*", "reset_vif", clkif);
+
+    // Backdoor memory VIF
     uvm_config_db#(virtual mem_bkdr_if)::set(null, "*", "mem_vif", memif);
   end
 

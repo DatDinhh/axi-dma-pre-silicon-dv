@@ -1,0 +1,59 @@
+{
+  "SchemaVersion": 1,
+  "Mode": "regression",
+  "RunId": "0dc7adb8",
+  "StartedUtc": "2026-09-13T20:50:24.2065763Z",
+  "CompletedUtc": "2026-09-13T20:50:37.6971604Z",
+  "GitRevision": "c5f730ddb48d09e6effee9ebe9ac23aac5003cc1",
+  "GitDirty": true,
+  "ToolVersion": "Model Technology ModelSim - INTEL FPGA STARTER EDITION vsim 2020.1 Simulator 2020.02 Feb 28 2020",
+  "CoverageEnabled": false,
+  "SvaEnabled": false,
+  "Seeds": [
+    1
+  ],
+  "TimeoutSeconds": 120,
+  "Compile": {
+    "Result": "PASS",
+    "Reason": "",
+    "ExitCode": 0,
+    "TimedOut": false,
+    "RuntimeSeconds": 4.808,
+    "LogPath": "output/0dc7adb8/compile.log"
+  },
+  "Results": [
+    {
+      "Test": "scoreboard_negative_test",
+      "Seed": 1,
+      "PlusArgs": [
+        "+UVM_TESTNAME=scoreboard_negative_test",
+        "+UVM_NO_RELNOTES",
+        "+TEST_SEED=1",
+        "+AXI_STALL_SEED=1"
+      ],
+      "Result": "FAIL",
+      "Reason": "UVM reported an error or fatal.",
+      "GitRevision": "c5f730ddb48d09e6effee9ebe9ac23aac5003cc1",
+      "GitDirty": true,
+      "ToolVersion": "Model Technology ModelSim - INTEL FPGA STARTER EDITION vsim 2020.1 Simulator 2020.02 Feb 28 2020",
+      "ExitCode": 0,
+      "TimedOut": false,
+      "RuntimeSeconds": 8.01,
+      "LogPath": "output/0dc7adb8/scoreboard_negative_test_seed_1/simulation.log"
+    }
+  ],
+  "SourceManifestPath": "output/0dc7adb8/source_manifest.json",
+  "OriginalReport": "output/0dc7adb8/summary.json",
+  "Interpretation": "Expected checker detection: deliberately corrupt guard byte after START; require SB_MEMORY, UVM_ERROR=1 and nonzero runner result. This is not a passing DUT regression.",
+  "DetectionVerified": true,
+  "_Publication": {
+    "Kind": "sanitized-historical-review-copy",
+    "OriginalArtifactSha256": "d951a019784ad7875d654ac573eddd8180f87518a1f46d02eb289a5a5931dfef",
+    "Changes": [
+      "Machine paths replaced with portable aliases",
+      "Date stamps removed from run and artifact path names"
+    ],
+    "HashScope": "Existing source, report, manifest hashes and provenance signatures describe the original executed artifacts, not these rewritten review copies or the current working tree.",
+    "Replay": "Regenerate raw outputs with the runners for machine validation; this review copy is not a strict-merger input."
+  }
+}

@@ -114,14 +114,14 @@ module dma_engine_axi #(
                                        (DATA_BYTES == 8) ? 3'd3 :
                                        (DATA_BYTES == 16)? 3'd4 : 3'd2;
 
-  // Error codes (8-bit). Keep ERR_NONE=0 for tb expectations.
-  localparam logic [7:0] ERR_NONE      = 8'h00;
-  localparam logic [7:0] ERR_LEN_ZERO  = 8'h01;
-  localparam logic [7:0] ERR_ALIGN     = 8'h02;
-  localparam logic [7:0] ERR_RANGE     = 8'h03;
-  localparam logic [7:0] ERR_AXI_RRESP = 8'h10;
-  localparam logic [7:0] ERR_AXI_BRESP = 8'h11;
-  localparam logic [7:0] ERR_AXI_PROTO = 8'h12;
+  // Share the software-visible encoding with the register/testbench package.
+  localparam logic [7:0] ERR_NONE      = dma_pkg::ERR_NONE;
+  localparam logic [7:0] ERR_LEN_ZERO  = dma_pkg::ERR_LEN_ZERO;
+  localparam logic [7:0] ERR_ALIGN     = dma_pkg::ERR_ALIGN;
+  localparam logic [7:0] ERR_RANGE     = dma_pkg::ERR_RANGE;
+  localparam logic [7:0] ERR_AXI_RRESP = dma_pkg::ERR_AXI_RRESP;
+  localparam logic [7:0] ERR_AXI_BRESP = dma_pkg::ERR_AXI_BRESP;
+  localparam logic [7:0] ERR_AXI_PROTO = dma_pkg::ERR_AXI_PROTO;
 
   //--------------------------------------------------------------------------
   // Helpers
@@ -157,8 +157,7 @@ module dma_engine_axi #(
     ST_IDLE   = 3'd0,
     ST_AR     = 3'd1,
     ST_R      = 3'd2,
-    ST_AW     = 3'd3,
-    ST_W      = 3'd4,
+    ST_WRITE  = 3'd3,
     ST_B      = 3'd5,
     ST_DONE   = 3'd6,
     ST_ERR    = 3'd7
@@ -168,7 +167,6 @@ module dma_engine_axi #(
 
   logic [ADDR_WIDTH-1:0] src_addr_q, dst_addr_q;
   logic [31:0]           remain_q;
-  logic [DATA_WIDTH-1:0] rdata_q;
 
   // pulses
   logic start_accept_pulse_r, set_done_pulse_r, set_err_pulse_r;
@@ -219,7 +217,6 @@ module dma_engine_axi #(
       src_addr_q <= '0;
       dst_addr_q <= '0;
       remain_q   <= 32'd0;
-      rdata_q    <= '0;
 
       start_accept_pulse_r <= 1'b0;
       set_done_pulse_r     <= 1'b0;
@@ -327,42 +324,36 @@ module dma_engine_axi #(
               set_err_pulse_r <= 1'b1;
               state           <= ST_ERR;
             end else begin
-              rdata_q     <= m_axi_rdata;
               m_axi_rready<= 1'b0;
 
-              // Issue AW next
+              // AW and W are independent channels. Publish both without
+              // waiting for either READY; each VALID is its pending flag.
               m_axi_awaddr  <= dst_addr_q;
               m_axi_awvalid <= 1'b1;
-              state         <= ST_AW;
+              m_axi_wdata   <= m_axi_rdata;
+              m_axi_wstrb   <= {DATA_BYTES{1'b1}};
+              m_axi_wlast   <= 1'b1;
+              m_axi_wvalid  <= 1'b1;
+              state         <= ST_WRITE;
             end
           end
         end
 
         //============================================================
-        // ST_AW: drive AWVALID until accepted
+        // ST_WRITE: retire AW and W independently, in either order.
+        // Payload and VALID remain stable on each stalled channel.
         //============================================================
-        ST_AW: begin
-          if (m_axi_awvalid && m_axi_awready) begin
+        ST_WRITE: begin
+          if (m_axi_awvalid && m_axi_awready)
             m_axi_awvalid <= 1'b0;
-
-            // Drive W
-            m_axi_wdata  <= rdata_q;
-            m_axi_wstrb  <= {DATA_BYTES{1'b1}};
-            m_axi_wlast  <= 1'b1;
-            m_axi_wvalid <= 1'b1;
-
-            state <= ST_W;
-          end
-        end
-
-        //============================================================
-        // ST_W: drive WVALID until accepted, then wait B
-        //============================================================
-        ST_W: begin
           if (m_axi_wvalid && m_axi_wready) begin
             m_axi_wvalid <= 1'b0;
             m_axi_wlast  <= 1'b0;
-
+          end
+          // Include handshakes on this edge as well as previously accepted
+          // channels. A legal B response can arrive once both were accepted.
+          if ((!m_axi_awvalid || m_axi_awready) &&
+              (!m_axi_wvalid || m_axi_wready)) begin
             m_axi_bready <= 1'b1;
             state        <= ST_B;
           end

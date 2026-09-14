@@ -1,0 +1,22 @@
+{
+  "Metric": "infrastructure_control_logic_only",
+  "MergerFixtureCount": 33,
+  "MergerFixturePassed": 33,
+  "Platform": "Ubuntu WSL",
+  "Command": "python3 -B -m unittest discover -s out/merger_fix_staging -p test_merge_coverage.py -v",
+  "LogPath": "{repo}/out/merger_fix_staging/linux-fixtures.log",
+  "LogSha256": "c787d6ecf6e9a563d88d20593e7397250a043d2d13c40d64f0cc6eb2aab7c31b",
+  "ReleaseScriptSha256": "d1ac73c447b282ecbd8077bc9c2a4c3c694f76977e6d383f6a7201acac587f61",
+  "ReleaseTestSha256": "198cf3d64af34e4d1ad3a8948a7c492fb0bb8b829cd38e1de580886cb4550349",
+  "Note": "Staging and release files are byte-identical. Includes symlink escape and cross-platform path relocation checks. Synthetic fixtures are not DUT evidence.",
+  "_Publication": {
+    "Kind": "sanitized-historical-review-copy",
+    "OriginalArtifactSha256": "43e3f59b54e6ab30d4853aec77c1f87e88e886afdc86d1fe6892f2d96ad18863",
+    "Changes": [
+      "Machine paths replaced with portable aliases",
+      "Date stamps removed from run and artifact path names"
+    ],
+    "HashScope": "Existing source, report, manifest hashes and provenance signatures describe the original executed artifacts, not these rewritten review copies or the current working tree.",
+    "Replay": "Regenerate raw outputs with the runners for machine validation; this review copy is not a strict-merger input."
+  }
+}

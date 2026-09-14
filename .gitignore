@@ -1,0 +1,21 @@
+# Generated simulator output and local evidence archives.
+/output/
+/out/
+/work/
+/logs/
+/.local/
+/modelsim.ini
+*.wlf
+*.ucdb
+transcript
+vsim_stacktrace.vstf
+vsim_stacktrace.vstf.*
+*.stacktrace
+*.bak
+__pycache__/
+*.pyc
+
+# Local environment and credentials.
+.env
+.env.*
+!.env.example

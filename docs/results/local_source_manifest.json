@@ -1,0 +1,79 @@
+{
+  "SnapshotDirectory": "{repo}/output/local-verilator-5330b675/source",
+  "Sources": [
+    {
+      "Path": "rtl/dma_engine_axi.sv",
+      "Sha256": "641142d3fa6590fa679ed21e45dbd24bc6664e34f26769063c6dc97a4fe9af1b"
+    },
+    {
+      "Path": "rtl/dma_pkg.sv",
+      "Sha256": "d97ab1621dfb59c440b0e8d69381622e92080ddfec4d21ec047ff147676117f4"
+    },
+    {
+      "Path": "rtl/dma_regs_axil.sv",
+      "Sha256": "6de971aeb7aede31bc18884bc4e921674b87e7fa4422001d0df5c34642d2d79e"
+    },
+    {
+      "Path": "rtl/top_soc_dut.sv",
+      "Sha256": "e2a72cd1e38d76e3291b0373ab221e2f9088194623d3120923ddbae417f3ce78"
+    },
+    {
+      "Path": "scripts/local_coverage.py",
+      "Sha256": "6fd2f341f9e7fd1f669f8c9f547f279952ee2f9547f919866da16f356816df0e"
+    },
+    {
+      "Path": "scripts/run_local_verilator.py",
+      "Sha256": "fa548d95eb32b4ce444c6deca60eb7eebf2951d9fad95c5c49767187573fcccc"
+    },
+    {
+      "Path": "tb/interfaces/axi_if.sv",
+      "Sha256": "4466274571ccfe1a690e3b3183e5c69f3327eaa47fbbf9363f7e63572301d6f9"
+    },
+    {
+      "Path": "tb/interfaces/axil_if.sv",
+      "Sha256": "3915447f753ab3dfc4b994f33e3c542ef866d5634ed8b1ad7678f03cbe336683"
+    },
+    {
+      "Path": "tb/local/dma_local_checker_negative.sv",
+      "Sha256": "9f49c633c99dabc1d0224300300a1908aeb4a443ad2ff38b781fddfb3744506c"
+    },
+    {
+      "Path": "tb/local/dma_local_checks.sv",
+      "Sha256": "d9505a5b2499c5733fb67330693649222ab89fed5bf8da883e9d5a31ac8e1a55"
+    },
+    {
+      "Path": "tb/local/dma_local_test.sv",
+      "Sha256": "d13551cbc01c15fa60467e7f649109cf9687f35460c35463053b07cd7be5581b"
+    },
+    {
+      "Path": "tb/mem/axi_mem_model.sv",
+      "Sha256": "6c6c65767af601512e0de4219ab86377176daace77475cb1e0ba900dd5a7dc2a"
+    },
+    {
+      "Path": "tb/mem/mem_bkdr_if.sv",
+      "Sha256": "088637d81b6f83e786ebf42e3909619d6f87ca61b2e32c4a7af21002b844dc33"
+    },
+    {
+      "Path": "generated/dma_local_test_main.cpp",
+      "Sha256": "a3ed781d1bbef2e254d65923d99806bb19abafde8098041767f7a26373369395"
+    },
+    {
+      "Path": "generated/dma_local_checker_negative_main.cpp",
+      "Sha256": "bb748b597ed454e994c068622b76da8d5944eb1114784587a589ad83155c25ff"
+    },
+    {
+      "Path": "generated/coverage_scope.vlt",
+      "Sha256": "6ec6c390c28cf6cafe6fb9e2e3a183d681e21bb6c08c26fb5a8cd682e7c17156"
+    }
+  ],
+  "_Publication": {
+    "Kind": "sanitized-historical-review-copy",
+    "OriginalArtifactSha256": "8eeea80620e524e3b1eca07ed931adcd055b7aded2dcc207d21da56872becf7f",
+    "Changes": [
+      "Machine paths replaced with portable aliases",
+      "Date stamps removed from run and artifact path names"
+    ],
+    "HashScope": "Existing source, report, manifest hashes and provenance signatures describe the original executed artifacts, not these rewritten review copies or the current working tree.",
+    "Replay": "Regenerate raw outputs with the runners for machine validation; this review copy is not a strict-merger input."
+  }
+}

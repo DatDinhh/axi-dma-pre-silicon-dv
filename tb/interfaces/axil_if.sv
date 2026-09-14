@@ -74,6 +74,7 @@ interface axil_if #(
   // Clocking blocks (recommended for UVM drivers/monitors)
   //--------------------------------------------------------------------------
   // Master clocking block: TB drives address/data/control, samples ready/resp/data
+`ifndef DMA_RAW_INTERFACES
   clocking cb_master @(posedge clk);
     default input #1step output #1step;
 
@@ -91,8 +92,10 @@ interface axil_if #(
     input  arready;
     input  rdata, rresp, rvalid;
   endclocking
+`endif // DMA_RAW_INTERFACES
 
   // Monitor clocking block: passive observation of all signals
+`ifndef DMA_RAW_INTERFACES
   clocking cb_mon @(posedge clk);
     default input #1step output #1step;
 
@@ -102,16 +105,19 @@ interface axil_if #(
     input araddr, arprot, arvalid, arready;
     input rdata,  rresp,  rvalid,  rready;
   endclocking
+`endif // DMA_RAW_INTERFACES
 
   //--------------------------------------------------------------------------
   // Modports
   //--------------------------------------------------------------------------
   // TB Master Driver uses cb_master (preferred)
+`ifndef DMA_RAW_INTERFACES
   modport master (
     input  clk,
     input  rst_n,
     clocking cb_master
   );
+`endif // DMA_RAW_INTERFACES
 
   // DUT Slave connects to raw signals (synthesizable-style hookup)
   modport slave (
@@ -143,11 +149,13 @@ interface axil_if #(
   );
 
   // Passive monitor uses cb_mon (preferred)
+`ifndef DMA_RAW_INTERFACES
   modport monitor (
     input  clk,
     input  rst_n,
     clocking cb_mon
   );
+`endif // DMA_RAW_INTERFACES
 
 endinterface : axil_if
 

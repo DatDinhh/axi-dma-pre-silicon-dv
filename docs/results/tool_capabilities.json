@@ -1,0 +1,72 @@
+{
+  "SchemaVersion": 1,
+  "ObservedUtc": "2026-09-13T21:26:43.6337735Z",
+  "Scope": "Read-only environment discovery plus isolated workspace-contained capability probes; not DUT coverage",
+  "WindowsTools": [
+    {
+      "Name": "ModelSim Intel FPGA Starter Edition",
+      "Version": "2020.1 (2020.02 build)",
+      "Path": "{simulator}/win32aloem/vsim.exe"
+    },
+    {
+      "Name": "Icarus Verilog",
+      "Version": "11.0 (stable)",
+      "Path": "{iverilog}/iverilog.exe"
+    }
+  ],
+  "Wsl": {
+    "Distribution": "Ubuntu",
+    "WslVersion": 2,
+    "VerilatorPath": "/usr/bin/verilator",
+    "VerilatorVersion": "5.020 2024-01-01 (Debian 5.020-1)",
+    "CoveragePath": "/usr/bin/verilator_coverage",
+    "YosysPath": "/usr/bin/yosys",
+    "YosysVersion": "0.33 (2584903a060)",
+    "AvailableBuildTools": [
+      "/usr/bin/g++",
+      "/usr/bin/make",
+      "/usr/bin/git",
+      "/usr/bin/perl"
+    ],
+    "NotFoundOnPath": [
+      "sby",
+      "xrun",
+      "vcs",
+      "vsim",
+      "autoconf",
+      "flex",
+      "bison",
+      "z3",
+      "cvc5"
+    ]
+  },
+  "ValidatedVerilatorFeatures": {
+    "ConcurrentSva": "PASS: non-overlapping implication and $stable; clean case passes, intentional payload change triggers assertion and exit 134",
+    "CoverProperty": "PASS: native coverage.dat records released=1 and stalled=2",
+    "CodeCoverage": "PASS: native line/branch records and LCOV/annotated files exported from standalone probe",
+    "Covergroups": "UNSUPPORTED: existing covergroup_probe.sv rejected at lint",
+    "ExistingAssertionProbe": "COMPILER_INTERNAL_ERROR: 5.020 rejects else detected++ in scripts/probes/assertion_probe.sv",
+    "Uvm": "NOT PROBED on installed 5.020; no claim of full environment support",
+    "Yosys": "VERSION ONLY: no RTL/formal validation attempted"
+  },
+  "EvidenceDirectory": "out/tool_probe_verilator-f5578576",
+  "Reproduce": "wsl -d Ubuntu -- sh scripts/diagnostics/tool_probe_verilator.sh",
+  "BuildFlags": "--cc --exe --build --timing --assert --coverage-line --coverage-user -Wno-fatal",
+  "CoverageApi": "VerilatedContext::coveragep()->write(\"coverage.dat\") after final()",
+  "Notes": [
+    "Probe coverage metrics apply only to scripts/diagnostics/tool_probe_assertion.sv, not RTL or UVM regression.",
+    "Native Windows search was bounded to PATH and common installation directories; absence from PATH is not proof of absence elsewhere."
+  ],
+  "_Publication": {
+    "Kind": "sanitized-historical-review-copy",
+    "OriginalArtifactSha256": "c3a5e05d1f454350b42b415e3a8a3ed5a0cd6be438163b08ab5602ce9d41234b",
+    "Changes": [
+      "Machine paths replaced with portable aliases",
+      "Date stamps removed from run and artifact path names",
+      "Omitted untested newer-tool release notes",
+      "Omitted session-specific environment-discovery narrative"
+    ],
+    "HashScope": "Existing source, report, manifest hashes and provenance signatures describe the original executed artifacts, not these rewritten review copies or the current working tree.",
+    "Replay": "Regenerate raw outputs with the runners for machine validation; this review copy is not a strict-merger input."
+  }
+}

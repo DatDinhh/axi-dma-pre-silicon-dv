@@ -9,5 +9,7 @@ tb/interfaces/irq_if.sv
 tb/mem/mem_bkdr_if.sv
 tb/mem/axi_mem_model.sv
 tb/coverage/dma_cov.sv
+tb/uvm/dma_uvm_pkg.sv
+tb/checkers/dma_protocol_checks.sv
 tb/tb_pkg.sv
 tb/tb_top.sv

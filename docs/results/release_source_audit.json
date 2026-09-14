@@ -1,0 +1,55 @@
+{
+  "SchemaVersion": 1,
+  "CampaignReport": "{repo}/output/portfolio-fc0a9c14/summary.json",
+  "AnalysisReport": "{repo}/output/portfolio-fc0a9c14/coverage_release/coverage_summary.json",
+  "AnalysisTool": {
+    "Path": "{repo}/scripts/merge_coverage.py",
+    "Sha256": "d1ac73c447b282ecbd8077bc9c2a4c3c694f76977e6d383f6a7201acac587f61"
+  },
+  "RepositoryInputs": 41,
+  "UvmInputs": 145,
+  "AllHdlEquivalentIgnoringTrailingBlankLines": true,
+  "PostCampaignChanges": [
+    {
+      "Path": "run_regression.ps1",
+      "CampaignSha256": "521EF143A78596AB336525B8BD54615BD246B4DA9F3C5701EE575D8298190D1B",
+      "ReleaseSha256": "4344CC4B3FF40DF10C4F02361BA315B8A57A1C4AB05ED3D20FB3E1460EAA7F87",
+      "OnlyTrailingWhitespaceChanged": true
+    },
+    {
+      "Path": "scripts/merge_coverage.py",
+      "CampaignSha256": "C8BAB97CA2FEE909E70EE786448C48D7AE39458EAC2DFDEB5B5D2B3FB626E237",
+      "ReleaseSha256": "D1AC73C447B282ECBD8077BC9C2A4C3C694F76977E6D383F6A7201ACAC587F61",
+      "OnlyTrailingWhitespaceChanged": false
+    },
+    {
+      "Path": "scripts/run_xcelium.py",
+      "CampaignSha256": "D6529F037CF5DD203859F52B27A4E7FEA8894C3BDF48941FF15E8134EF1A8F11",
+      "ReleaseSha256": "EC3B8A79374EFA3CAF7BC12627958062985B64238BBD6B55DF921B6321E3F21D",
+      "OnlyTrailingWhitespaceChanged": false
+    },
+    {
+      "Path": "scripts/test_merge_coverage.py",
+      "CampaignSha256": "1A5EC081349ADF72B15539969482A929586A57D90BCCA5DBFCE654824A4BDFD3",
+      "ReleaseSha256": "198CF3D64AF34E4D1AD3A8948A7C492FB0BB8B829CD38E1DE580886CB4550349",
+      "OnlyTrailingWhitespaceChanged": false
+    },
+    {
+      "Path": "tb/coverage/dma_cov.sv",
+      "CampaignSha256": "F9D0376F209071D50B79E5B88FDF7ED6183EC3140A7043CCEBA5FB7D4C710620",
+      "ReleaseSha256": "CC8EA23427CCEC7E2EDA727F18196450C5DA97FA3C1F2AC7A42B713349AA2541",
+      "OnlyTrailingWhitespaceChanged": true
+    }
+  ],
+  "Note": "Full39 executed once. Then report gates/metadata hardened and trailing blank lines removed; no HDL behavior changed. Final coverage recomputed with the hashed release analysis script; final HDL compiled and smoke-tested again.",
+  "_Publication": {
+    "Kind": "sanitized-historical-review-copy",
+    "OriginalArtifactSha256": "e89233921b7cf983bd035ee91e6b9bc65ab769a7f271b51af6ad40a2adc40ca3",
+    "Changes": [
+      "Machine paths replaced with portable aliases",
+      "Date stamps removed from run and artifact path names"
+    ],
+    "HashScope": "Existing source, report, manifest hashes and provenance signatures describe the original executed artifacts, not these rewritten review copies or the current working tree.",
+    "Replay": "Regenerate raw outputs with the runners for machine validation; this review copy is not a strict-merger input."
+  }
+}

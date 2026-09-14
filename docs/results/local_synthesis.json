@@ -1,0 +1,173 @@
+{
+  "schema_version": 1,
+  "result": "PASS",
+  "started_utc": "20260914T033234Z",
+  "tool": "Quartus Prime Analysis & Synthesis",
+  "part": "5CSEMA5F31C6",
+  "scope": "exact-source synthesis sanity; no fitting, timing signoff or formal proof",
+  "sources": [
+    {
+      "path": "rtl/dma_pkg.sv",
+      "sha256": "d97ab1621dfb59c440b0e8d69381622e92080ddfec4d21ec047ff147676117f4"
+    },
+    {
+      "path": "rtl/dma_regs_axil.sv",
+      "sha256": "6de971aeb7aede31bc18884bc4e921674b87e7fa4422001d0df5c34642d2d79e"
+    },
+    {
+      "path": "rtl/dma_engine_axi.sv",
+      "sha256": "641142d3fa6590fa679ed21e45dbd24bc6664e34f26769063c6dc97a4fe9af1b"
+    },
+    {
+      "path": "rtl/top_soc_dut.sv",
+      "sha256": "e2a72cd1e38d76e3291b0373ab221e2f9088194623d3120923ddbae417f3ce78"
+    },
+    {
+      "path": "scripts/check_synthesis.py",
+      "sha256": "7404ce2ed71fb518489907e6ca4d41dcc382c3db547f5e209bece091fe5eada4"
+    }
+  ],
+  "runs": [
+    {
+      "command": [
+        "{quartus}/bin64/quartus_map.exe",
+        "--version"
+      ],
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 0.950462,
+      "log": "version.log"
+    },
+    {
+      "command": [
+        "{quartus}/bin64/quartus_map.exe",
+        "synthesis_check",
+        "--write_settings_files=off",
+        "--parallel=2"
+      ],
+      "exit_code": 0,
+      "timed_out": false,
+      "seconds": 21.786836,
+      "log": "quartus_map.log"
+    }
+  ],
+  "version": "Quartus Prime Analysis & Synthesis\nVersion 20.1.1 Build 720 11/11/2020 SJ Standard Edition\nCopyright (C) 2020  Intel Corporation. All rights reserved.",
+  "warnings": [
+    "Warning (10762): Verilog HDL Case Statement warning at dma_regs_axil.sv(132): can't check case statement for completeness because the case expression has too many possible states File: {repo}/out/synthesis-bd29716e/source/rtl/dma_regs_axil.sv Line: 132",
+    "Warning (10762): Verilog HDL Case Statement warning at dma_regs_axil.sv(231): can't check case statement for completeness because the case expression has too many possible states File: {repo}/out/synthesis-bd29716e/source/rtl/dma_regs_axil.sv Line: 231",
+    "Warning (10762): Verilog HDL Case Statement warning at dma_regs_axil.sv(275): can't check case statement for completeness because the case expression has too many possible states File: {repo}/out/synthesis-bd29716e/source/rtl/dma_regs_axil.sv Line: 275",
+    "Warning (13024): Output pins are stuck at VCC or GND",
+    "Warning (13410): Pin \"s_axil_bresp[0]\" is stuck at GND File: {repo}/out/synthesis-bd29716e/source/rtl/top_soc_dut.sv Line: 38",
+    "Warning (13410): Pin \"s_axil_rresp[0]\" is stuck at GND File: {repo}/out/synthesis-bd29716e/source/rtl/top_soc_dut.sv Line: 48",
+    "Warning (13410): Pin \"m_axi_awid[0]\" is stuck at GND File: {repo}/out/synthesis-bd29716e/source/rtl/top_soc_dut.sv Line: 53",
+    "Warning (13410): Pin \"m_axi_awlen[0]\" is stuck at GND File: {repo}/out/synthesis-bd29716e/source/rtl/top_soc_dut.sv Line: 55",
+    "Warning (13410): Pin \"m_axi_awlen[1]\" is stuck at GND File: {repo}/out/synthesis-bd29716e/source/rtl/top_soc_dut.sv Line: 55",
+    "Warning (13410): Pin \"m_axi_awlen[2]\" is stuck at GND File: {repo}/out/synthesis-bd29716e/source/rtl/top_soc_dut.sv Line: 55",
+    "Warning (13410): Pin \"m_axi_awlen[3]\" is stuck at GND File: {repo}/out/synthesis-bd29716e/source/rtl/top_soc_dut.sv Line: 55",
+    "Warning (13410): Pin \"m_axi_awlen[4]\" is stuck at GND File: {repo}/out/synthesis-bd29716e/source/rtl/top_soc_dut.sv Line: 55",
+    "Warning (13410): Pin \"m_axi_awlen[5]\" is stuck at GND File: {repo}/out/synthesis-bd29716e/source/rtl/top_soc_dut.sv Line: 55",
+    "Warning (13410): Pin \"m_axi_awlen[6]\" is stuck at GND File: {repo}/out/synthesis-bd29716e/source/rtl/top_soc_dut.sv Line: 55",
+    "Warning (13410): Pin \"m_axi_awlen[7]\" is stuck at GND File: {repo}/out/synthesis-bd29716e/source/rtl/top_soc_dut.sv Line: 55",
+    "Warning (13410): Pin \"m_axi_awsize[0]\" is stuck at GND File: {repo}/out/synthesis-bd29716e/source/rtl/top_soc_dut.sv Line: 56",
+    "Warning (13410): Pin \"m_axi_awsize[1]\" is stuck at VCC File: {repo}/out/synthesis-bd29716e/source/rtl/top_soc_dut.sv Line: 56",
+    "Warning (13410): Pin \"m_axi_awsize[2]\" is stuck at GND File: {repo}/out/synthesis-bd29716e/source/rtl/top_soc_dut.sv Line: 56",
+    "Warning (13410): Pin \"m_axi_awburst[0]\" is stuck at VCC File: {repo}/out/synthesis-bd29716e/source/rtl/top_soc_dut.sv Line: 57",
+    "Warning (13410): Pin \"m_axi_awburst[1]\" is stuck at GND File: {repo}/out/synthesis-bd29716e/source/rtl/top_soc_dut.sv Line: 57",
+    "Warning (13410): Pin \"m_axi_awlock\" is stuck at GND File: {repo}/out/synthesis-bd29716e/source/rtl/top_soc_dut.sv Line: 58",
+    "Warning (13410): Pin \"m_axi_awcache[0]\" is stuck at GND File: {repo}/out/synthesis-bd29716e/source/rtl/top_soc_dut.sv Line: 59",
+    "Warning (13410): Pin \"m_axi_awcache[1]\" is stuck at GND File: {repo}/out/synthesis-bd29716e/source/rtl/top_soc_dut.sv Line: 59",
+    "Warning (13410): Pin \"m_axi_awcache[2]\" is stuck at GND File: {repo}/out/synthesis-bd29716e/source/rtl/top_soc_dut.sv Line: 59",
+    "Warning (13410): Pin \"m_axi_awcache[3]\" is stuck at GND File: {repo}/out/synthesis-bd29716e/source/rtl/top_soc_dut.sv Line: 59",
+    "Warning (13410): Pin \"m_axi_awprot[0]\" is stuck at GND File: {repo}/out/synthesis-bd29716e/source/rtl/top_soc_dut.sv Line: 60",
+    "Warning (13410): Pin \"m_axi_awprot[1]\" is stuck at GND File: {repo}/out/synthesis-bd29716e/source/rtl/top_soc_dut.sv Line: 60",
+    "Warning (13410): Pin \"m_axi_awprot[2]\" is stuck at GND File: {repo}/out/synthesis-bd29716e/source/rtl/top_soc_dut.sv Line: 60",
+    "Warning (13410): Pin \"m_axi_awqos[0]\" is stuck at GND File: {repo}/out/synthesis-bd29716e/source/rtl/top_soc_dut.sv Line: 61",
+    "Warning (13410): Pin \"m_axi_awqos[1]\" is stuck at GND File: {repo}/out/synthesis-bd29716e/source/rtl/top_soc_dut.sv Line: 61",
+    "Warning (13410): Pin \"m_axi_awqos[2]\" is stuck at GND File: {repo}/out/synthesis-bd29716e/source/rtl/top_soc_dut.sv Line: 61",
+    "Warning (13410): Pin \"m_axi_awqos[3]\" is stuck at GND File: {repo}/out/synthesis-bd29716e/source/rtl/top_soc_dut.sv Line: 61",
+    "Warning (13410): Pin \"m_axi_arid[0]\" is stuck at GND File: {repo}/out/synthesis-bd29716e/source/rtl/top_soc_dut.sv Line: 76",
+    "Warning (13410): Pin \"m_axi_arlen[0]\" is stuck at GND File: {repo}/out/synthesis-bd29716e/source/rtl/top_soc_dut.sv Line: 78",
+    "Warning (13410): Pin \"m_axi_arlen[1]\" is stuck at GND File: {repo}/out/synthesis-bd29716e/source/rtl/top_soc_dut.sv Line: 78",
+    "Warning (13410): Pin \"m_axi_arlen[2]\" is stuck at GND File: {repo}/out/synthesis-bd29716e/source/rtl/top_soc_dut.sv Line: 78",
+    "Warning (13410): Pin \"m_axi_arlen[3]\" is stuck at GND File: {repo}/out/synthesis-bd29716e/source/rtl/top_soc_dut.sv Line: 78",
+    "Warning (13410): Pin \"m_axi_arlen[4]\" is stuck at GND File: {repo}/out/synthesis-bd29716e/source/rtl/top_soc_dut.sv Line: 78",
+    "Warning (13410): Pin \"m_axi_arlen[5]\" is stuck at GND File: {repo}/out/synthesis-bd29716e/source/rtl/top_soc_dut.sv Line: 78",
+    "Warning (13410): Pin \"m_axi_arlen[6]\" is stuck at GND File: {repo}/out/synthesis-bd29716e/source/rtl/top_soc_dut.sv Line: 78",
+    "Warning (13410): Pin \"m_axi_arlen[7]\" is stuck at GND File: {repo}/out/synthesis-bd29716e/source/rtl/top_soc_dut.sv Line: 78",
+    "Warning (13410): Pin \"m_axi_arsize[0]\" is stuck at GND File: {repo}/out/synthesis-bd29716e/source/rtl/top_soc_dut.sv Line: 79",
+    "Warning (13410): Pin \"m_axi_arsize[1]\" is stuck at VCC File: {repo}/out/synthesis-bd29716e/source/rtl/top_soc_dut.sv Line: 79",
+    "Warning (13410): Pin \"m_axi_arsize[2]\" is stuck at GND File: {repo}/out/synthesis-bd29716e/source/rtl/top_soc_dut.sv Line: 79",
+    "Warning (13410): Pin \"m_axi_arburst[0]\" is stuck at VCC File: {repo}/out/synthesis-bd29716e/source/rtl/top_soc_dut.sv Line: 80",
+    "Warning (13410): Pin \"m_axi_arburst[1]\" is stuck at GND File: {repo}/out/synthesis-bd29716e/source/rtl/top_soc_dut.sv Line: 80",
+    "Warning (13410): Pin \"m_axi_arlock\" is stuck at GND File: {repo}/out/synthesis-bd29716e/source/rtl/top_soc_dut.sv Line: 81",
+    "Warning (13410): Pin \"m_axi_arcache[0]\" is stuck at GND File: {repo}/out/synthesis-bd29716e/source/rtl/top_soc_dut.sv Line: 82",
+    "Warning (13410): Pin \"m_axi_arcache[1]\" is stuck at GND File: {repo}/out/synthesis-bd29716e/source/rtl/top_soc_dut.sv Line: 82",
+    "Warning (13410): Pin \"m_axi_arcache[2]\" is stuck at GND File: {repo}/out/synthesis-bd29716e/source/rtl/top_soc_dut.sv Line: 82",
+    "Warning (13410): Pin \"m_axi_arcache[3]\" is stuck at GND File: {repo}/out/synthesis-bd29716e/source/rtl/top_soc_dut.sv Line: 82",
+    "Warning (13410): Pin \"m_axi_arprot[0]\" is stuck at GND File: {repo}/out/synthesis-bd29716e/source/rtl/top_soc_dut.sv Line: 83",
+    "Warning (13410): Pin \"m_axi_arprot[1]\" is stuck at GND File: {repo}/out/synthesis-bd29716e/source/rtl/top_soc_dut.sv Line: 83",
+    "Warning (13410): Pin \"m_axi_arprot[2]\" is stuck at GND File: {repo}/out/synthesis-bd29716e/source/rtl/top_soc_dut.sv Line: 83",
+    "Warning (13410): Pin \"m_axi_arqos[0]\" is stuck at GND File: {repo}/out/synthesis-bd29716e/source/rtl/top_soc_dut.sv Line: 84",
+    "Warning (13410): Pin \"m_axi_arqos[1]\" is stuck at GND File: {repo}/out/synthesis-bd29716e/source/rtl/top_soc_dut.sv Line: 84",
+    "Warning (13410): Pin \"m_axi_arqos[2]\" is stuck at GND File: {repo}/out/synthesis-bd29716e/source/rtl/top_soc_dut.sv Line: 84",
+    "Warning (13410): Pin \"m_axi_arqos[3]\" is stuck at GND File: {repo}/out/synthesis-bd29716e/source/rtl/top_soc_dut.sv Line: 84",
+    "Warning (21074): Design contains 8 input pin(s) that do not drive logic",
+    "Warning (15610): No output dependent on input pin \"s_axil_awprot[0]\" File: {repo}/out/synthesis-bd29716e/source/rtl/top_soc_dut.sv Line: 29",
+    "Warning (15610): No output dependent on input pin \"s_axil_awprot[1]\" File: {repo}/out/synthesis-bd29716e/source/rtl/top_soc_dut.sv Line: 29",
+    "Warning (15610): No output dependent on input pin \"s_axil_awprot[2]\" File: {repo}/out/synthesis-bd29716e/source/rtl/top_soc_dut.sv Line: 29",
+    "Warning (15610): No output dependent on input pin \"s_axil_arprot[0]\" File: {repo}/out/synthesis-bd29716e/source/rtl/top_soc_dut.sv Line: 43",
+    "Warning (15610): No output dependent on input pin \"s_axil_arprot[1]\" File: {repo}/out/synthesis-bd29716e/source/rtl/top_soc_dut.sv Line: 43",
+    "Warning (15610): No output dependent on input pin \"s_axil_arprot[2]\" File: {repo}/out/synthesis-bd29716e/source/rtl/top_soc_dut.sv Line: 43",
+    "Warning (15610): No output dependent on input pin \"m_axi_bid[0]\" File: {repo}/out/synthesis-bd29716e/source/rtl/top_soc_dut.sv Line: 71",
+    "Warning (15610): No output dependent on input pin \"m_axi_rid[0]\" File: {repo}/out/synthesis-bd29716e/source/rtl/top_soc_dut.sv Line: 88"
+  ],
+  "errors": [],
+  "warning_counts": {
+    "10762": 3,
+    "13024": 1,
+    "13410": 54,
+    "15610": 8,
+    "21074": 1
+  },
+  "warning_interpretations": {
+    "10762": "Wide CSR address case completeness cannot be checked by this compiler; review defaults in source.",
+    "13024": "Constant output summary; examine child 13410 messages against supported protocol subset.",
+    "13410": "Constant output bits; expected for fixed single-beat, ID-zero AXI sidebands and OKAY/SLVERR responses.",
+    "21074": "Unused input summary; examine child 15610 messages against specification.",
+    "15610": "Input has no influence on output; baseline ignores AXI-Lite protection and incoming AXI response IDs."
+  },
+  "unclassified_warning_codes": [],
+  "report": "reports\\synthesis_check.map.rpt",
+  "resource_summary_lines": [
+    "; Family                          ; Cyclone V                                       ;",
+    "; Logic utilization (in ALMs)     ; N/A                                             ;",
+    "; Total registers                 ; 424                                             ;",
+    "; Total block memory bits         ; 0                                               ;",
+    "; Total DSP Blocks                ; 0                                               ;",
+    "; Device                                                                          ; 5CSEMA5F31C6       ;                    ;",
+    "; Family name                                                                     ; Cyclone V          ; Cyclone V          ;",
+    "; Estimate of Logic utilization (ALMs needed) ; 319         ;",
+    "; Combinational ALUT usage for logic          ; 434         ;",
+    "; Dedicated logic registers                   ; 424         ;",
+    "; Total DSP Blocks                            ; 0           ;",
+    "; Total registers                              ; 424   ;"
+  ],
+  "resources": {
+    "estimated_alms": 319,
+    "combinational_aluts": 434,
+    "registers": 424,
+    "block_memory_bits": 0,
+    "dsp_blocks": 0
+  },
+  "structural_findings": [],
+  "_Publication": {
+    "Kind": "sanitized-historical-review-copy",
+    "OriginalArtifactSha256": "20dcdb9b73d2540b4732431f58d48b0bede0d47dad77fc1c326e9d5d1c665a50",
+    "Changes": [
+      "Machine paths replaced with portable aliases",
+      "Date stamps removed from run and artifact path names"
+    ],
+    "HashScope": "Existing source, report, manifest hashes and provenance signatures describe the original executed artifacts, not these rewritten review copies or the current working tree.",
+    "Replay": "Regenerate raw outputs with the runners for machine validation; this review copy is not a strict-merger input."
+  }
+}

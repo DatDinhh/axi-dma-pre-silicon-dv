@@ -103,6 +103,7 @@ interface axi_if #(
 
   // Master clocking block: TB/driver view when controlling the AXI master
   // (Useful if you ever create a TB AXI master; for this project DUT is master.)
+`ifndef DMA_RAW_INTERFACES
   clocking cb_master @(posedge clk);
     default input #1step output #1step;
 
@@ -120,8 +121,10 @@ interface axi_if #(
     input  arready;
     input  rid, rdata, rresp, rlast, rvalid;
   endclocking
+`endif // DMA_RAW_INTERFACES
 
   // Slave clocking block: TB memory agent drives READY/RESP/DATA back to DUT
+`ifndef DMA_RAW_INTERFACES
   clocking cb_slave @(posedge clk);
     default input #1step output #1step;
 
@@ -139,8 +142,10 @@ interface axi_if #(
     input  arid, araddr, arlen, arsize, arburst, arlock, arcache, arprot, arqos, arvalid;
     input  rready;
   endclocking
+`endif // DMA_RAW_INTERFACES
 
   // Passive monitor clocking block
+`ifndef DMA_RAW_INTERFACES
   clocking cb_mon @(posedge clk);
     default input #1step output #1step;
 
@@ -150,6 +155,7 @@ interface axi_if #(
     input arid, araddr, arlen, arsize, arburst, arlock, arcache, arprot, arqos, arvalid, arready;
     input rid, rdata, rresp, rlast, rvalid, rready;
   endclocking
+`endif // DMA_RAW_INTERFACES
 
   //--------------------------------------------------------------------------
   // Modports
@@ -196,24 +202,30 @@ interface axi_if #(
   );
 
   // UVM drivers can use the clocking blocks directly (recommended)
+`ifndef DMA_RAW_INTERFACES
   modport master_drv (
     input  clk,
     input  rst_n,
     clocking cb_master
   );
+`endif // DMA_RAW_INTERFACES
 
+`ifndef DMA_RAW_INTERFACES
   modport slave_drv (
     input  clk,
     input  rst_n,
     clocking cb_slave
   );
+`endif // DMA_RAW_INTERFACES
 
   // Passive monitor
+`ifndef DMA_RAW_INTERFACES
   modport monitor (
     input  clk,
     input  rst_n,
     clocking cb_mon
   );
+`endif // DMA_RAW_INTERFACES
 
 endinterface : axi_if
 

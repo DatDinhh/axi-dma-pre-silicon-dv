@@ -1,0 +1,60 @@
+{
+  "Runs": 60,
+  "Passed": 60,
+  "Seeds": [
+    1,
+    7,
+    42
+  ],
+  "RandomDescriptorsPerSeed": 128,
+  "ScoreboardTotals": {
+    "transfers": 579,
+    "completed": 564,
+    "reset_aborts": 15,
+    "memory_checked": 37945344
+  },
+  "CheckerSelfTests": [
+    {
+      "Test": "checker_control",
+      "Result": "PASS",
+      "ExitCode": 0
+    },
+    {
+      "Test": "checker_negative",
+      "Result": "PASS_EXPECTED_DETECTION",
+      "ExitCode": -6
+    },
+    {
+      "Test": "oracle_negative",
+      "Result": "PASS_EXPECTED_DETECTION",
+      "ExitCode": -6
+    }
+  ],
+  "NativeCoverage": {
+    "LineBlockPoints": {
+      "Hit": 40,
+      "Total": 44,
+      "Percent": 90.91
+    },
+    "BranchOutcomePoints": {
+      "Hit": 65,
+      "Total": 70,
+      "Percent": 92.86
+    },
+    "TogglePoints": {
+      "Hit": 1098,
+      "Total": 1474,
+      "Percent": 74.49
+    }
+  },
+  "_Publication": {
+    "Kind": "sanitized-historical-review-copy",
+    "OriginalArtifactSha256": "6eab73fbac7c2c2a6a5549088812ad11b327b5965f4b5d30201e7e0a2f442b4d",
+    "Changes": [
+      "Machine paths replaced with portable aliases",
+      "Date stamps removed from run and artifact path names"
+    ],
+    "HashScope": "Existing source, report, manifest hashes and provenance signatures describe the original executed artifacts, not these rewritten review copies or the current working tree.",
+    "Replay": "Regenerate raw outputs with the runners for machine validation; this review copy is not a strict-merger input."
+  }
+}

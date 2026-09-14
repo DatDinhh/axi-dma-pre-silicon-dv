@@ -58,11 +58,13 @@ interface clk_rst_if #(
   endtask
 
   // Apply a synchronous active-low reset for N cycles.
-  // Reset is asserted immediately and deasserted on a clock edge.
-  task automatic apply_reset(input int unsigned cycles = RESET_CYCLES);
+  // Reset is asserted/deasserted on falling edges, away from sampling edges.
+  task automatic apply_reset(input int unsigned cycles = RESET_CYCLES, input bit at_negedge = 0);
+    if (!at_negedge) @(negedge clk);
     rst_n = 1'b0;
     // Hold reset for a deterministic number of rising edges
     repeat (cycles) @(posedge clk);
+    @(negedge clk);
     rst_n = 1'b1;
     // Optional: allow one cycle for downstream stabilization
     @(posedge clk);

@@ -1,0 +1,265 @@
+{
+  "SchemaVersion": 1,
+  "Mode": "standalone-unit-checks",
+  "RunId": "unit-fa31b625",
+  "StartedUtc": "2026-09-13T20:55:02.2706882Z",
+  "CompletedUtc": "2026-09-13T20:55:54.2476287Z",
+  "GitRevision": "c5f730ddb48d09e6effee9ebe9ac23aac5003cc1",
+  "GitDirty": true,
+  "ToolVersion": "Model Technology ModelSim - INTEL FPGA STARTER EDITION vsim 2020.1 Simulator 2020.02 Feb 28 2020",
+  "CoverageEnabled": false,
+  "SvaEnabled": false,
+  "TimeoutSeconds": 60,
+  "Compile": {
+    "Result": "PASS",
+    "Reason": "",
+    "ExitCode": 0,
+    "TimedOut": false,
+    "LogPath": "out/unit-fa31b625/compile.log"
+  },
+  "Results": [
+    {
+      "Test": "engine_w_before_aw",
+      "Top": "engine_aw_w_test",
+      "Kind": "rtl_unit",
+      "Seed": 1,
+      "PlusArgs": [
+        "+AW_MODE=0"
+      ],
+      "ExpectedUvmErrors": null,
+      "Result": "PASS",
+      "Reason": "",
+      "ExitCode": 0,
+      "TimedOut": false,
+      "RuntimeSeconds": 2.657,
+      "LogPath": "out/unit-fa31b625/engine_w_before_aw.log"
+    },
+    {
+      "Test": "engine_aw_before_w",
+      "Top": "engine_aw_w_test",
+      "Kind": "rtl_unit",
+      "Seed": 1,
+      "PlusArgs": [
+        "+AW_MODE=1"
+      ],
+      "ExpectedUvmErrors": null,
+      "Result": "PASS",
+      "Reason": "",
+      "ExitCode": 0,
+      "TimedOut": false,
+      "RuntimeSeconds": 3.095,
+      "LogPath": "out/unit-fa31b625/engine_aw_before_w.log"
+    },
+    {
+      "Test": "engine_aw_w_together",
+      "Top": "engine_aw_w_test",
+      "Kind": "rtl_unit",
+      "Seed": 1,
+      "PlusArgs": [
+        "+AW_MODE=2"
+      ],
+      "ExpectedUvmErrors": null,
+      "Result": "PASS",
+      "Reason": "",
+      "ExitCode": 0,
+      "TimedOut": false,
+      "RuntimeSeconds": 2.985,
+      "LogPath": "out/unit-fa31b625/engine_aw_w_together.log"
+    },
+    {
+      "Test": "engine_rresp",
+      "Top": "engine_aw_w_test",
+      "Kind": "rtl_unit",
+      "Seed": 1,
+      "PlusArgs": [
+        "+RRESP=2"
+      ],
+      "ExpectedUvmErrors": null,
+      "Result": "PASS",
+      "Reason": "",
+      "ExitCode": 0,
+      "TimedOut": false,
+      "RuntimeSeconds": 3.506,
+      "LogPath": "out/unit-fa31b625/engine_rresp.log"
+    },
+    {
+      "Test": "engine_bresp",
+      "Top": "engine_aw_w_test",
+      "Kind": "rtl_unit",
+      "Seed": 1,
+      "PlusArgs": [
+        "+BRESP=2"
+      ],
+      "ExpectedUvmErrors": null,
+      "Result": "PASS",
+      "Reason": "",
+      "ExitCode": 0,
+      "TimedOut": false,
+      "RuntimeSeconds": 2.784,
+      "LogPath": "out/unit-fa31b625/engine_bresp.log"
+    },
+    {
+      "Test": "engine_rlast",
+      "Top": "engine_aw_w_test",
+      "Kind": "rtl_unit",
+      "Seed": 1,
+      "PlusArgs": [
+        "+BAD_RLAST=1"
+      ],
+      "ExpectedUvmErrors": null,
+      "Result": "PASS",
+      "Reason": "",
+      "ExitCode": 0,
+      "TimedOut": false,
+      "RuntimeSeconds": 4.514,
+      "LogPath": "out/unit-fa31b625/engine_rlast.log"
+    },
+    {
+      "Test": "memory_default",
+      "Top": "mem_model_test",
+      "Kind": "responder_self_test",
+      "Seed": 1,
+      "PlusArgs": [],
+      "ExpectedUvmErrors": null,
+      "Result": "PASS",
+      "Reason": "",
+      "ExitCode": 0,
+      "TimedOut": false,
+      "RuntimeSeconds": 2.909,
+      "LogPath": "out/unit-fa31b625/memory_default.log"
+    },
+    {
+      "Test": "memory_seed1",
+      "Top": "mem_model_test",
+      "Kind": "responder_self_test",
+      "Seed": 1,
+      "PlusArgs": [
+        "+AXI_AW_WAIT_W=1",
+        "+AXI_STALL_MAX=5",
+        "+AXI_STALL_SEED=1"
+      ],
+      "ExpectedUvmErrors": null,
+      "Result": "PASS",
+      "Reason": "",
+      "ExitCode": 0,
+      "TimedOut": false,
+      "RuntimeSeconds": 4.911,
+      "LogPath": "out/unit-fa31b625/memory_seed1.log"
+    },
+    {
+      "Test": "memory_seed99",
+      "Top": "mem_model_test",
+      "Kind": "responder_self_test",
+      "Seed": 1,
+      "PlusArgs": [
+        "+AXI_AW_WAIT_W=1",
+        "+AXI_STALL_MAX=5",
+        "+AXI_STALL_SEED=99"
+      ],
+      "ExpectedUvmErrors": null,
+      "Result": "PASS",
+      "Reason": "",
+      "ExitCode": 0,
+      "TimedOut": false,
+      "RuntimeSeconds": 2.888,
+      "LogPath": "out/unit-fa31b625/memory_seed99.log"
+    },
+    {
+      "Test": "memory_errors_seed42",
+      "Top": "mem_model_test",
+      "Kind": "responder_self_test",
+      "Seed": 1,
+      "PlusArgs": [
+        "+AXI_AW_WAIT_W=1",
+        "+AXI_STALL_MAX=7",
+        "+AXI_STALL_SEED=42",
+        "+AXI_BERR_ADDR=204",
+        "+AXI_RERR_ADDR=204"
+      ],
+      "ExpectedUvmErrors": null,
+      "Result": "PASS",
+      "Reason": "",
+      "ExitCode": 0,
+      "TimedOut": false,
+      "RuntimeSeconds": 3.99,
+      "LogPath": "out/unit-fa31b625/memory_errors_seed42.log"
+    },
+    {
+      "Test": "memory_errors_seed42_replay",
+      "Top": "mem_model_test",
+      "Kind": "responder_self_test",
+      "Seed": 1,
+      "PlusArgs": [
+        "+AXI_AW_WAIT_W=1",
+        "+AXI_STALL_MAX=7",
+        "+AXI_STALL_SEED=42",
+        "+AXI_BERR_ADDR=204",
+        "+AXI_RERR_ADDR=204"
+      ],
+      "ExpectedUvmErrors": null,
+      "Result": "PASS",
+      "Reason": "",
+      "ExitCode": 0,
+      "TimedOut": false,
+      "RuntimeSeconds": 3.187,
+      "LogPath": "out/unit-fa31b625/memory_errors_seed42_replay.log"
+    },
+    {
+      "Test": "checker_clean",
+      "Top": "rv_stability_test",
+      "Kind": "checker_self_test",
+      "Seed": 1,
+      "PlusArgs": [
+        "+INJECT_STALL_ERROR=0"
+      ],
+      "ExpectedUvmErrors": 0,
+      "Result": "PASS",
+      "Reason": "",
+      "ExitCode": 0,
+      "TimedOut": false,
+      "RuntimeSeconds": 4.033,
+      "LogPath": "out/unit-fa31b625/checker_clean.log"
+    },
+    {
+      "Test": "checker_expected_violation",
+      "Top": "rv_stability_test",
+      "Kind": "expected_checker_detection",
+      "Seed": 1,
+      "PlusArgs": [
+        "+INJECT_STALL_ERROR=1"
+      ],
+      "ExpectedUvmErrors": 1,
+      "Result": "PASS_EXPECTED_DETECTION",
+      "Reason": "",
+      "ExitCode": 0,
+      "TimedOut": false,
+      "RuntimeSeconds": 3.547,
+      "LogPath": "out/unit-fa31b625/checker_expected_violation.log"
+    },
+    {
+      "Test": "regs_event",
+      "Top": "regs_event_test",
+      "Kind": "rtl_unit",
+      "Seed": 1,
+      "PlusArgs": [],
+      "ExpectedUvmErrors": null,
+      "Result": "PASS",
+      "Reason": "",
+      "ExitCode": 0,
+      "TimedOut": false,
+      "RuntimeSeconds": 2.927,
+      "LogPath": "out/unit-fa31b625/regs_event.log"
+    }
+  ],
+  "OriginalReport": "out/unit-fa31b625/summary.json",
+  "_Publication": {
+    "Kind": "sanitized-historical-review-copy",
+    "OriginalArtifactSha256": "3fcc2ff54e0b1caf728dda4c0d5c4c05d551aa79b1da4456689b44a46a0d1418",
+    "Changes": [
+      "Machine paths replaced with portable aliases",
+      "Date stamps removed from run and artifact path names"
+    ],
+    "HashScope": "Existing source, report, manifest hashes and provenance signatures describe the original executed artifacts, not these rewritten review copies or the current working tree.",
+    "Replay": "Regenerate raw outputs with the runners for machine validation; this review copy is not a strict-merger input."
+  }
+}

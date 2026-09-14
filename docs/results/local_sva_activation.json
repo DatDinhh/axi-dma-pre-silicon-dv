@@ -1,0 +1,185 @@
+{
+  "SchemaVersion": 1,
+  "Status": "PASS",
+  "RunId": "local-verilator-5330b675",
+  "Metric": "native_concurrent_assertion_activation_audit",
+  "Partial": false,
+  "DefaultSixtyRunMatrix": true,
+  "DeclaredDutRuns": 60,
+  "Tests": [
+    "csr",
+    "lengths",
+    "boundaries",
+    "invalid_zero",
+    "invalid_src_align",
+    "invalid_dst_align",
+    "invalid_len_align",
+    "invalid_src_range",
+    "invalid_dst_range",
+    "invalid_overflow",
+    "irq",
+    "busy",
+    "reset_ar",
+    "reset_r",
+    "reset_aw",
+    "reset_w",
+    "reset_b",
+    "random",
+    "read_errors",
+    "write_errors"
+  ],
+  "Seeds": [
+    1,
+    7,
+    42
+  ],
+  "ExpectedNativePoints": 37,
+  "ObservedNativePoints": 37,
+  "HitNativePoints": 27,
+  "ChannelsWithHandshakes": 10,
+  "HoldAssertionsExercised": 5,
+  "Channels": [
+    {
+      "Channel": "AXI.AW",
+      "Assertion": "TOP.dma_local_test.checks.aw.a_hold",
+      "Handshakes": 27044,
+      "StallAntecedents": 89594,
+      "StallReleases": 22370,
+      "HoldStatus": "EXERCISED"
+    },
+    {
+      "Channel": "AXI.W",
+      "Assertion": "TOP.dma_local_test.checks.w.a_hold",
+      "Handshakes": 27041,
+      "StallAntecedents": 206205,
+      "StallReleases": 27041,
+      "HoldStatus": "EXERCISED"
+    },
+    {
+      "Channel": "AXI.B",
+      "Assertion": "TOP.dma_local_test.checks.b.a_hold",
+      "Handshakes": 27038,
+      "StallAntecedents": 0,
+      "StallReleases": 0,
+      "HoldStatus": "NOT_EXERCISED"
+    },
+    {
+      "Channel": "AXI.AR",
+      "Assertion": "TOP.dma_local_test.checks.ar.a_hold",
+      "Handshakes": 27059,
+      "StallAntecedents": 95482,
+      "StallReleases": 23843,
+      "HoldStatus": "EXERCISED"
+    },
+    {
+      "Channel": "AXI.R",
+      "Assertion": "TOP.dma_local_test.checks.r.a_hold",
+      "Handshakes": 27056,
+      "StallAntecedents": 0,
+      "StallReleases": 0,
+      "HoldStatus": "NOT_EXERCISED"
+    },
+    {
+      "Channel": "AXIL.AW",
+      "Assertion": "TOP.dma_local_test.checks.law.a_hold",
+      "Handshakes": 3012,
+      "StallAntecedents": 0,
+      "StallReleases": 0,
+      "HoldStatus": "NOT_EXERCISED"
+    },
+    {
+      "Channel": "AXIL.W",
+      "Assertion": "TOP.dma_local_test.checks.lw.a_hold",
+      "Handshakes": 3012,
+      "StallAntecedents": 0,
+      "StallReleases": 0,
+      "HoldStatus": "NOT_EXERCISED"
+    },
+    {
+      "Channel": "AXIL.B",
+      "Assertion": "TOP.dma_local_test.checks.lb.a_hold",
+      "Handshakes": 3012,
+      "StallAntecedents": 45,
+      "StallReleases": 9,
+      "HoldStatus": "EXERCISED"
+    },
+    {
+      "Channel": "AXIL.AR",
+      "Assertion": "TOP.dma_local_test.checks.lar.a_hold",
+      "Handshakes": 228806,
+      "StallAntecedents": 0,
+      "StallReleases": 0,
+      "HoldStatus": "NOT_EXERCISED"
+    },
+    {
+      "Channel": "AXIL.R",
+      "Assertion": "TOP.dma_local_test.checks.lr.a_hold",
+      "Handshakes": 228806,
+      "StallAntecedents": 45,
+      "StallReleases": 9,
+      "HoldStatus": "EXERCISED"
+    }
+  ],
+  "ShapeAndResponseAntecedents": [
+    {
+      "Property": "c_axi_aw_valid",
+      "Hits": 116638
+    },
+    {
+      "Property": "c_axi_w_valid",
+      "Hits": 233246
+    },
+    {
+      "Property": "c_axi_b_valid",
+      "Hits": 27038
+    },
+    {
+      "Property": "c_axi_ar_valid",
+      "Hits": 122541
+    },
+    {
+      "Property": "c_axi_r_valid",
+      "Hits": 27056
+    },
+    {
+      "Property": "c_axil_b_valid",
+      "Hits": 3057
+    },
+    {
+      "Property": "c_axil_r_valid",
+      "Hits": 228851
+    }
+  ],
+  "ReportPath": "{repo}/output/local-verilator-5330b675/summary.json",
+  "ReportSha256": "d4ff84b30a611261387f3385c40a362d608cdb232317ff5643e911c9a5e07859",
+  "SourceManifestSha256": "2889a061b9377e182a71a6d24b76d6ca770212145173ab73337079ba58cd1835",
+  "MergedNativeSha256": "70e1f3f6c4b7f528712092d41e9a27a6542dc974641059fa9437756c3e05052f",
+  "CodeCoverageJsonSha256": "5bd0839369fc10b7be13c590e085b701dfd013f2cbaf8a0c68dbb551122976e7",
+  "AuditScriptSha256": "5d6e3245a65df886ff67c0f156cd0ff290ad1405942b671ab82d06a24fb4b5a9",
+  "Verified": [
+    "Finished declared matrix and clean DUT outcomes",
+    "Assertion and oracle self-tests",
+    "Frozen source hashes",
+    "Native/JSON activation agreement",
+    "37-point inventory",
+    "Sum of passing DUT coverage inputs only"
+  ],
+  "Limitations": [
+    "PASS means this evidence audit passed; it does not mean every hold assertion was exercised.",
+    "EXERCISED means a stalled-cycle antecedent was observed in a passing simulation.",
+    "A reset can cancel a pending hold obligation; stall-release counts provide additional completed-sequence evidence.",
+    "NOT_EXERCISED is retained explicitly; no unhit points are excluded from reported counts.",
+    "Two-state simulation does not verify X/Z behavior and is not formal proof or native covergroup closure."
+  ],
+  "CompletedUtc": "2026-09-14T03:47:26.106968+00:00",
+  "_Publication": {
+    "Kind": "sanitized-historical-review-copy",
+    "OriginalArtifactSha256": "367766dc7eeec971015538f60d2bc1f7fe633fd1196bb2ccfe933aeebfab8c4b",
+    "Changes": [
+      "Machine paths replaced with portable aliases",
+      "Date stamps removed from run and artifact path names"
+    ],
+    "HashScope": "Existing source, report, manifest hashes and provenance signatures describe the original executed artifacts, not these rewritten review copies or the current working tree.",
+    "Replay": "Regenerate raw outputs with the runners for machine validation; this review copy is not a strict-merger input."
+  }
+}

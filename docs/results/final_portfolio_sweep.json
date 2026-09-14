@@ -1,0 +1,880 @@
+{
+  "OriginalReport": "output/portfolio-404eb2dd/summary.json",
+  "SchemaVersion": 1,
+  "Mode": "portfolio-suite",
+  "RunId": "portfolio-404eb2dd",
+  "CompletedUtc": "2026-09-13T21:09:35.1726018Z",
+  "GitRevision": "c5f730ddb48d09e6effee9ebe9ac23aac5003cc1",
+  "GitDirty": true,
+  "ToolVersion": "Model Technology ModelSim - INTEL FPGA STARTER EDITION vsim 2020.1 Simulator 2020.02 Feb 28 2020",
+  "VsimPath": "{simulator}/win32aloem/vsim.exe",
+  "UvmPath": "{simulator}/verilog_src/uvm-1.2/src",
+  "CoverageEnabled": false,
+  "SvaEnabled": false,
+  "Seeds": [
+    1,
+    7,
+    42
+  ],
+  "ChildRuns": [
+    {
+      "Phase": "adversarial",
+      "ExitCode": 3,
+      "OutputDirectory": "output/62b81b5c",
+      "Count": 33,
+      "SourceManifestPath": "output/62b81b5c/source_manifest.json"
+    },
+    {
+      "Phase": "read-error",
+      "ExitCode": 0,
+      "OutputDirectory": "output/28469d63",
+      "Count": 3,
+      "SourceManifestPath": "output/28469d63/source_manifest.json"
+    },
+    {
+      "Phase": "write-error",
+      "ExitCode": 0,
+      "OutputDirectory": "output/5029afef",
+      "Count": 3,
+      "SourceManifestPath": "output/5029afef/source_manifest.json"
+    }
+  ],
+  "Results": [
+    {
+      "Test": "smoke_test",
+      "Seed": 1,
+      "PlusArgs": [
+        "+UVM_TESTNAME=smoke_test",
+        "+UVM_NO_RELNOTES",
+        "+TEST_SEED=1",
+        "+AXI_AW_WAIT_W=1",
+        "+AXI_STALL_MAX=7",
+        "+AXI_STALL_SEED=1"
+      ],
+      "Result": "PASS",
+      "Reason": "",
+      "GitRevision": "c5f730ddb48d09e6effee9ebe9ac23aac5003cc1",
+      "GitDirty": true,
+      "ToolVersion": "Model Technology ModelSim - INTEL FPGA STARTER EDITION vsim 2020.1 Simulator 2020.02 Feb 28 2020",
+      "ExitCode": 0,
+      "TimedOut": false,
+      "RuntimeSeconds": 4.193,
+      "LogPath": "output/62b81b5c/smoke_test_seed_1/simulation.log"
+    },
+    {
+      "Test": "smoke_test",
+      "Seed": 7,
+      "PlusArgs": [
+        "+UVM_TESTNAME=smoke_test",
+        "+UVM_NO_RELNOTES",
+        "+TEST_SEED=7",
+        "+AXI_AW_WAIT_W=1",
+        "+AXI_STALL_MAX=7",
+        "+AXI_STALL_SEED=7"
+      ],
+      "Result": "FAIL",
+      "Reason": "Simulator exited with code 211.",
+      "GitRevision": "c5f730ddb48d09e6effee9ebe9ac23aac5003cc1",
+      "GitDirty": true,
+      "ToolVersion": "Model Technology ModelSim - INTEL FPGA STARTER EDITION vsim 2020.1 Simulator 2020.02 Feb 28 2020",
+      "ExitCode": 211,
+      "TimedOut": false,
+      "RuntimeSeconds": 2.273,
+      "LogPath": "output/62b81b5c/smoke_test_seed_7/simulation.log"
+    },
+    {
+      "Test": "smoke_test",
+      "Seed": 42,
+      "PlusArgs": [
+        "+UVM_TESTNAME=smoke_test",
+        "+UVM_NO_RELNOTES",
+        "+TEST_SEED=42",
+        "+AXI_AW_WAIT_W=1",
+        "+AXI_STALL_MAX=7",
+        "+AXI_STALL_SEED=42"
+      ],
+      "Result": "PASS",
+      "Reason": "",
+      "GitRevision": "c5f730ddb48d09e6effee9ebe9ac23aac5003cc1",
+      "GitDirty": true,
+      "ToolVersion": "Model Technology ModelSim - INTEL FPGA STARTER EDITION vsim 2020.1 Simulator 2020.02 Feb 28 2020",
+      "ExitCode": 0,
+      "TimedOut": false,
+      "RuntimeSeconds": 4.603,
+      "LogPath": "output/62b81b5c/smoke_test_seed_42/simulation.log"
+    },
+    {
+      "Test": "copy_test",
+      "Seed": 1,
+      "PlusArgs": [
+        "+UVM_TESTNAME=copy_test",
+        "+UVM_NO_RELNOTES",
+        "+TEST_SEED=1",
+        "+AXI_AW_WAIT_W=1",
+        "+AXI_STALL_MAX=7",
+        "+AXI_STALL_SEED=1"
+      ],
+      "Result": "PASS",
+      "Reason": "",
+      "GitRevision": "c5f730ddb48d09e6effee9ebe9ac23aac5003cc1",
+      "GitDirty": true,
+      "ToolVersion": "Model Technology ModelSim - INTEL FPGA STARTER EDITION vsim 2020.1 Simulator 2020.02 Feb 28 2020",
+      "ExitCode": 0,
+      "TimedOut": false,
+      "RuntimeSeconds": 5.069,
+      "LogPath": "output/62b81b5c/copy_test_seed_1/simulation.log"
+    },
+    {
+      "Test": "copy_test",
+      "Seed": 7,
+      "PlusArgs": [
+        "+UVM_TESTNAME=copy_test",
+        "+UVM_NO_RELNOTES",
+        "+TEST_SEED=7",
+        "+AXI_AW_WAIT_W=1",
+        "+AXI_STALL_MAX=7",
+        "+AXI_STALL_SEED=7"
+      ],
+      "Result": "PASS",
+      "Reason": "",
+      "GitRevision": "c5f730ddb48d09e6effee9ebe9ac23aac5003cc1",
+      "GitDirty": true,
+      "ToolVersion": "Model Technology ModelSim - INTEL FPGA STARTER EDITION vsim 2020.1 Simulator 2020.02 Feb 28 2020",
+      "ExitCode": 0,
+      "TimedOut": false,
+      "RuntimeSeconds": 4.986,
+      "LogPath": "output/62b81b5c/copy_test_seed_7/simulation.log"
+    },
+    {
+      "Test": "copy_test",
+      "Seed": 42,
+      "PlusArgs": [
+        "+UVM_TESTNAME=copy_test",
+        "+UVM_NO_RELNOTES",
+        "+TEST_SEED=42",
+        "+AXI_AW_WAIT_W=1",
+        "+AXI_STALL_MAX=7",
+        "+AXI_STALL_SEED=42"
+      ],
+      "Result": "PASS",
+      "Reason": "",
+      "GitRevision": "c5f730ddb48d09e6effee9ebe9ac23aac5003cc1",
+      "GitDirty": true,
+      "ToolVersion": "Model Technology ModelSim - INTEL FPGA STARTER EDITION vsim 2020.1 Simulator 2020.02 Feb 28 2020",
+      "ExitCode": 0,
+      "TimedOut": false,
+      "RuntimeSeconds": 4.862,
+      "LogPath": "output/62b81b5c/copy_test_seed_42/simulation.log"
+    },
+    {
+      "Test": "len_zero_test",
+      "Seed": 1,
+      "PlusArgs": [
+        "+UVM_TESTNAME=len_zero_test",
+        "+UVM_NO_RELNOTES",
+        "+TEST_SEED=1",
+        "+AXI_AW_WAIT_W=1",
+        "+AXI_STALL_MAX=7",
+        "+AXI_STALL_SEED=1"
+      ],
+      "Result": "PASS",
+      "Reason": "",
+      "GitRevision": "c5f730ddb48d09e6effee9ebe9ac23aac5003cc1",
+      "GitDirty": true,
+      "ToolVersion": "Model Technology ModelSim - INTEL FPGA STARTER EDITION vsim 2020.1 Simulator 2020.02 Feb 28 2020",
+      "ExitCode": 0,
+      "TimedOut": false,
+      "RuntimeSeconds": 4.655,
+      "LogPath": "output/62b81b5c/len_zero_test_seed_1/simulation.log"
+    },
+    {
+      "Test": "len_zero_test",
+      "Seed": 7,
+      "PlusArgs": [
+        "+UVM_TESTNAME=len_zero_test",
+        "+UVM_NO_RELNOTES",
+        "+TEST_SEED=7",
+        "+AXI_AW_WAIT_W=1",
+        "+AXI_STALL_MAX=7",
+        "+AXI_STALL_SEED=7"
+      ],
+      "Result": "PASS",
+      "Reason": "",
+      "GitRevision": "c5f730ddb48d09e6effee9ebe9ac23aac5003cc1",
+      "GitDirty": true,
+      "ToolVersion": "Model Technology ModelSim - INTEL FPGA STARTER EDITION vsim 2020.1 Simulator 2020.02 Feb 28 2020",
+      "ExitCode": 0,
+      "TimedOut": false,
+      "RuntimeSeconds": 4.725,
+      "LogPath": "output/62b81b5c/len_zero_test_seed_7/simulation.log"
+    },
+    {
+      "Test": "len_zero_test",
+      "Seed": 42,
+      "PlusArgs": [
+        "+UVM_TESTNAME=len_zero_test",
+        "+UVM_NO_RELNOTES",
+        "+TEST_SEED=42",
+        "+AXI_AW_WAIT_W=1",
+        "+AXI_STALL_MAX=7",
+        "+AXI_STALL_SEED=42"
+      ],
+      "Result": "PASS",
+      "Reason": "",
+      "GitRevision": "c5f730ddb48d09e6effee9ebe9ac23aac5003cc1",
+      "GitDirty": true,
+      "ToolVersion": "Model Technology ModelSim - INTEL FPGA STARTER EDITION vsim 2020.1 Simulator 2020.02 Feb 28 2020",
+      "ExitCode": 0,
+      "TimedOut": false,
+      "RuntimeSeconds": 3.831,
+      "LogPath": "output/62b81b5c/len_zero_test_seed_42/simulation.log"
+    },
+    {
+      "Test": "unaligned_addr_test",
+      "Seed": 1,
+      "PlusArgs": [
+        "+UVM_TESTNAME=unaligned_addr_test",
+        "+UVM_NO_RELNOTES",
+        "+TEST_SEED=1",
+        "+AXI_AW_WAIT_W=1",
+        "+AXI_STALL_MAX=7",
+        "+AXI_STALL_SEED=1"
+      ],
+      "Result": "PASS",
+      "Reason": "",
+      "GitRevision": "c5f730ddb48d09e6effee9ebe9ac23aac5003cc1",
+      "GitDirty": true,
+      "ToolVersion": "Model Technology ModelSim - INTEL FPGA STARTER EDITION vsim 2020.1 Simulator 2020.02 Feb 28 2020",
+      "ExitCode": 0,
+      "TimedOut": false,
+      "RuntimeSeconds": 5.361,
+      "LogPath": "output/62b81b5c/unaligned_addr_test_seed_1/simulation.log"
+    },
+    {
+      "Test": "unaligned_addr_test",
+      "Seed": 7,
+      "PlusArgs": [
+        "+UVM_TESTNAME=unaligned_addr_test",
+        "+UVM_NO_RELNOTES",
+        "+TEST_SEED=7",
+        "+AXI_AW_WAIT_W=1",
+        "+AXI_STALL_MAX=7",
+        "+AXI_STALL_SEED=7"
+      ],
+      "Result": "PASS",
+      "Reason": "",
+      "GitRevision": "c5f730ddb48d09e6effee9ebe9ac23aac5003cc1",
+      "GitDirty": true,
+      "ToolVersion": "Model Technology ModelSim - INTEL FPGA STARTER EDITION vsim 2020.1 Simulator 2020.02 Feb 28 2020",
+      "ExitCode": 0,
+      "TimedOut": false,
+      "RuntimeSeconds": 6.376,
+      "LogPath": "output/62b81b5c/unaligned_addr_test_seed_7/simulation.log"
+    },
+    {
+      "Test": "unaligned_addr_test",
+      "Seed": 42,
+      "PlusArgs": [
+        "+UVM_TESTNAME=unaligned_addr_test",
+        "+UVM_NO_RELNOTES",
+        "+TEST_SEED=42",
+        "+AXI_AW_WAIT_W=1",
+        "+AXI_STALL_MAX=7",
+        "+AXI_STALL_SEED=42"
+      ],
+      "Result": "PASS",
+      "Reason": "",
+      "GitRevision": "c5f730ddb48d09e6effee9ebe9ac23aac5003cc1",
+      "GitDirty": true,
+      "ToolVersion": "Model Technology ModelSim - INTEL FPGA STARTER EDITION vsim 2020.1 Simulator 2020.02 Feb 28 2020",
+      "ExitCode": 0,
+      "TimedOut": false,
+      "RuntimeSeconds": 4.777,
+      "LogPath": "output/62b81b5c/unaligned_addr_test_seed_42/simulation.log"
+    },
+    {
+      "Test": "out_of_range_test",
+      "Seed": 1,
+      "PlusArgs": [
+        "+UVM_TESTNAME=out_of_range_test",
+        "+UVM_NO_RELNOTES",
+        "+TEST_SEED=1",
+        "+AXI_AW_WAIT_W=1",
+        "+AXI_STALL_MAX=7",
+        "+AXI_STALL_SEED=1"
+      ],
+      "Result": "FAIL",
+      "Reason": "Simulator exited with code 211.",
+      "GitRevision": "c5f730ddb48d09e6effee9ebe9ac23aac5003cc1",
+      "GitDirty": true,
+      "ToolVersion": "Model Technology ModelSim - INTEL FPGA STARTER EDITION vsim 2020.1 Simulator 2020.02 Feb 28 2020",
+      "ExitCode": 211,
+      "TimedOut": false,
+      "RuntimeSeconds": 3.986,
+      "LogPath": "output/62b81b5c/out_of_range_test_seed_1/simulation.log"
+    },
+    {
+      "Test": "out_of_range_test",
+      "Seed": 7,
+      "PlusArgs": [
+        "+UVM_TESTNAME=out_of_range_test",
+        "+UVM_NO_RELNOTES",
+        "+TEST_SEED=7",
+        "+AXI_AW_WAIT_W=1",
+        "+AXI_STALL_MAX=7",
+        "+AXI_STALL_SEED=7"
+      ],
+      "Result": "PASS",
+      "Reason": "",
+      "GitRevision": "c5f730ddb48d09e6effee9ebe9ac23aac5003cc1",
+      "GitDirty": true,
+      "ToolVersion": "Model Technology ModelSim - INTEL FPGA STARTER EDITION vsim 2020.1 Simulator 2020.02 Feb 28 2020",
+      "ExitCode": 0,
+      "TimedOut": false,
+      "RuntimeSeconds": 5.33,
+      "LogPath": "output/62b81b5c/out_of_range_test_seed_7/simulation.log"
+    },
+    {
+      "Test": "out_of_range_test",
+      "Seed": 42,
+      "PlusArgs": [
+        "+UVM_TESTNAME=out_of_range_test",
+        "+UVM_NO_RELNOTES",
+        "+TEST_SEED=42",
+        "+AXI_AW_WAIT_W=1",
+        "+AXI_STALL_MAX=7",
+        "+AXI_STALL_SEED=42"
+      ],
+      "Result": "PASS",
+      "Reason": "",
+      "GitRevision": "c5f730ddb48d09e6effee9ebe9ac23aac5003cc1",
+      "GitDirty": true,
+      "ToolVersion": "Model Technology ModelSim - INTEL FPGA STARTER EDITION vsim 2020.1 Simulator 2020.02 Feb 28 2020",
+      "ExitCode": 0,
+      "TimedOut": false,
+      "RuntimeSeconds": 6.317,
+      "LogPath": "output/62b81b5c/out_of_range_test_seed_42/simulation.log"
+    },
+    {
+      "Test": "csr_access_test",
+      "Seed": 1,
+      "PlusArgs": [
+        "+UVM_TESTNAME=csr_access_test",
+        "+UVM_NO_RELNOTES",
+        "+TEST_SEED=1",
+        "+AXI_AW_WAIT_W=1",
+        "+AXI_STALL_MAX=7",
+        "+AXI_STALL_SEED=1"
+      ],
+      "Result": "PASS",
+      "Reason": "",
+      "GitRevision": "c5f730ddb48d09e6effee9ebe9ac23aac5003cc1",
+      "GitDirty": true,
+      "ToolVersion": "Model Technology ModelSim - INTEL FPGA STARTER EDITION vsim 2020.1 Simulator 2020.02 Feb 28 2020",
+      "ExitCode": 0,
+      "TimedOut": false,
+      "RuntimeSeconds": 4.315,
+      "LogPath": "output/62b81b5c/csr_access_test_seed_1/simulation.log"
+    },
+    {
+      "Test": "csr_access_test",
+      "Seed": 7,
+      "PlusArgs": [
+        "+UVM_TESTNAME=csr_access_test",
+        "+UVM_NO_RELNOTES",
+        "+TEST_SEED=7",
+        "+AXI_AW_WAIT_W=1",
+        "+AXI_STALL_MAX=7",
+        "+AXI_STALL_SEED=7"
+      ],
+      "Result": "PASS",
+      "Reason": "",
+      "GitRevision": "c5f730ddb48d09e6effee9ebe9ac23aac5003cc1",
+      "GitDirty": true,
+      "ToolVersion": "Model Technology ModelSim - INTEL FPGA STARTER EDITION vsim 2020.1 Simulator 2020.02 Feb 28 2020",
+      "ExitCode": 0,
+      "TimedOut": false,
+      "RuntimeSeconds": 3.974,
+      "LogPath": "output/62b81b5c/csr_access_test_seed_7/simulation.log"
+    },
+    {
+      "Test": "csr_access_test",
+      "Seed": 42,
+      "PlusArgs": [
+        "+UVM_TESTNAME=csr_access_test",
+        "+UVM_NO_RELNOTES",
+        "+TEST_SEED=42",
+        "+AXI_AW_WAIT_W=1",
+        "+AXI_STALL_MAX=7",
+        "+AXI_STALL_SEED=42"
+      ],
+      "Result": "PASS",
+      "Reason": "",
+      "GitRevision": "c5f730ddb48d09e6effee9ebe9ac23aac5003cc1",
+      "GitDirty": true,
+      "ToolVersion": "Model Technology ModelSim - INTEL FPGA STARTER EDITION vsim 2020.1 Simulator 2020.02 Feb 28 2020",
+      "ExitCode": 0,
+      "TimedOut": false,
+      "RuntimeSeconds": 4.027,
+      "LogPath": "output/62b81b5c/csr_access_test_seed_42/simulation.log"
+    },
+    {
+      "Test": "descriptor_corner_test",
+      "Seed": 1,
+      "PlusArgs": [
+        "+UVM_TESTNAME=descriptor_corner_test",
+        "+UVM_NO_RELNOTES",
+        "+TEST_SEED=1",
+        "+AXI_AW_WAIT_W=1",
+        "+AXI_STALL_MAX=7",
+        "+AXI_STALL_SEED=1"
+      ],
+      "Result": "PASS",
+      "Reason": "",
+      "GitRevision": "c5f730ddb48d09e6effee9ebe9ac23aac5003cc1",
+      "GitDirty": true,
+      "ToolVersion": "Model Technology ModelSim - INTEL FPGA STARTER EDITION vsim 2020.1 Simulator 2020.02 Feb 28 2020",
+      "ExitCode": 0,
+      "TimedOut": false,
+      "RuntimeSeconds": 10.122,
+      "LogPath": "output/62b81b5c/descriptor_corner_test_seed_1/simulation.log"
+    },
+    {
+      "Test": "descriptor_corner_test",
+      "Seed": 7,
+      "PlusArgs": [
+        "+UVM_TESTNAME=descriptor_corner_test",
+        "+UVM_NO_RELNOTES",
+        "+TEST_SEED=7",
+        "+AXI_AW_WAIT_W=1",
+        "+AXI_STALL_MAX=7",
+        "+AXI_STALL_SEED=7"
+      ],
+      "Result": "PASS",
+      "Reason": "",
+      "GitRevision": "c5f730ddb48d09e6effee9ebe9ac23aac5003cc1",
+      "GitDirty": true,
+      "ToolVersion": "Model Technology ModelSim - INTEL FPGA STARTER EDITION vsim 2020.1 Simulator 2020.02 Feb 28 2020",
+      "ExitCode": 0,
+      "TimedOut": false,
+      "RuntimeSeconds": 11.911,
+      "LogPath": "output/62b81b5c/descriptor_corner_test_seed_7/simulation.log"
+    },
+    {
+      "Test": "descriptor_corner_test",
+      "Seed": 42,
+      "PlusArgs": [
+        "+UVM_TESTNAME=descriptor_corner_test",
+        "+UVM_NO_RELNOTES",
+        "+TEST_SEED=42",
+        "+AXI_AW_WAIT_W=1",
+        "+AXI_STALL_MAX=7",
+        "+AXI_STALL_SEED=42"
+      ],
+      "Result": "PASS",
+      "Reason": "",
+      "GitRevision": "c5f730ddb48d09e6effee9ebe9ac23aac5003cc1",
+      "GitDirty": true,
+      "ToolVersion": "Model Technology ModelSim - INTEL FPGA STARTER EDITION vsim 2020.1 Simulator 2020.02 Feb 28 2020",
+      "ExitCode": 0,
+      "TimedOut": false,
+      "RuntimeSeconds": 12.152,
+      "LogPath": "output/62b81b5c/descriptor_corner_test_seed_42/simulation.log"
+    },
+    {
+      "Test": "irq_test",
+      "Seed": 1,
+      "PlusArgs": [
+        "+UVM_TESTNAME=irq_test",
+        "+UVM_NO_RELNOTES",
+        "+TEST_SEED=1",
+        "+AXI_AW_WAIT_W=1",
+        "+AXI_STALL_MAX=7",
+        "+AXI_STALL_SEED=1"
+      ],
+      "Result": "PASS",
+      "Reason": "",
+      "GitRevision": "c5f730ddb48d09e6effee9ebe9ac23aac5003cc1",
+      "GitDirty": true,
+      "ToolVersion": "Model Technology ModelSim - INTEL FPGA STARTER EDITION vsim 2020.1 Simulator 2020.02 Feb 28 2020",
+      "ExitCode": 0,
+      "TimedOut": false,
+      "RuntimeSeconds": 5.608,
+      "LogPath": "output/62b81b5c/irq_test_seed_1/simulation.log"
+    },
+    {
+      "Test": "irq_test",
+      "Seed": 7,
+      "PlusArgs": [
+        "+UVM_TESTNAME=irq_test",
+        "+UVM_NO_RELNOTES",
+        "+TEST_SEED=7",
+        "+AXI_AW_WAIT_W=1",
+        "+AXI_STALL_MAX=7",
+        "+AXI_STALL_SEED=7"
+      ],
+      "Result": "PASS",
+      "Reason": "",
+      "GitRevision": "c5f730ddb48d09e6effee9ebe9ac23aac5003cc1",
+      "GitDirty": true,
+      "ToolVersion": "Model Technology ModelSim - INTEL FPGA STARTER EDITION vsim 2020.1 Simulator 2020.02 Feb 28 2020",
+      "ExitCode": 0,
+      "TimedOut": false,
+      "RuntimeSeconds": 5.941,
+      "LogPath": "output/62b81b5c/irq_test_seed_7/simulation.log"
+    },
+    {
+      "Test": "irq_test",
+      "Seed": 42,
+      "PlusArgs": [
+        "+UVM_TESTNAME=irq_test",
+        "+UVM_NO_RELNOTES",
+        "+TEST_SEED=42",
+        "+AXI_AW_WAIT_W=1",
+        "+AXI_STALL_MAX=7",
+        "+AXI_STALL_SEED=42"
+      ],
+      "Result": "PASS",
+      "Reason": "",
+      "GitRevision": "c5f730ddb48d09e6effee9ebe9ac23aac5003cc1",
+      "GitDirty": true,
+      "ToolVersion": "Model Technology ModelSim - INTEL FPGA STARTER EDITION vsim 2020.1 Simulator 2020.02 Feb 28 2020",
+      "ExitCode": 0,
+      "TimedOut": false,
+      "RuntimeSeconds": 7.518,
+      "LogPath": "output/62b81b5c/irq_test_seed_42/simulation.log"
+    },
+    {
+      "Test": "busy_start_test",
+      "Seed": 1,
+      "PlusArgs": [
+        "+UVM_TESTNAME=busy_start_test",
+        "+UVM_NO_RELNOTES",
+        "+TEST_SEED=1",
+        "+AXI_AW_WAIT_W=1",
+        "+AXI_STALL_MAX=7",
+        "+AXI_STALL_SEED=1"
+      ],
+      "Result": "PASS",
+      "Reason": "",
+      "GitRevision": "c5f730ddb48d09e6effee9ebe9ac23aac5003cc1",
+      "GitDirty": true,
+      "ToolVersion": "Model Technology ModelSim - INTEL FPGA STARTER EDITION vsim 2020.1 Simulator 2020.02 Feb 28 2020",
+      "ExitCode": 0,
+      "TimedOut": false,
+      "RuntimeSeconds": 12.041,
+      "LogPath": "output/62b81b5c/busy_start_test_seed_1/simulation.log"
+    },
+    {
+      "Test": "busy_start_test",
+      "Seed": 7,
+      "PlusArgs": [
+        "+UVM_TESTNAME=busy_start_test",
+        "+UVM_NO_RELNOTES",
+        "+TEST_SEED=7",
+        "+AXI_AW_WAIT_W=1",
+        "+AXI_STALL_MAX=7",
+        "+AXI_STALL_SEED=7"
+      ],
+      "Result": "PASS",
+      "Reason": "",
+      "GitRevision": "c5f730ddb48d09e6effee9ebe9ac23aac5003cc1",
+      "GitDirty": true,
+      "ToolVersion": "Model Technology ModelSim - INTEL FPGA STARTER EDITION vsim 2020.1 Simulator 2020.02 Feb 28 2020",
+      "ExitCode": 0,
+      "TimedOut": false,
+      "RuntimeSeconds": 8.804,
+      "LogPath": "output/62b81b5c/busy_start_test_seed_7/simulation.log"
+    },
+    {
+      "Test": "busy_start_test",
+      "Seed": 42,
+      "PlusArgs": [
+        "+UVM_TESTNAME=busy_start_test",
+        "+UVM_NO_RELNOTES",
+        "+TEST_SEED=42",
+        "+AXI_AW_WAIT_W=1",
+        "+AXI_STALL_MAX=7",
+        "+AXI_STALL_SEED=42"
+      ],
+      "Result": "PASS",
+      "Reason": "",
+      "GitRevision": "c5f730ddb48d09e6effee9ebe9ac23aac5003cc1",
+      "GitDirty": true,
+      "ToolVersion": "Model Technology ModelSim - INTEL FPGA STARTER EDITION vsim 2020.1 Simulator 2020.02 Feb 28 2020",
+      "ExitCode": 0,
+      "TimedOut": false,
+      "RuntimeSeconds": 8.565,
+      "LogPath": "output/62b81b5c/busy_start_test_seed_42/simulation.log"
+    },
+    {
+      "Test": "reset_mid_transfer_test",
+      "Seed": 1,
+      "PlusArgs": [
+        "+UVM_TESTNAME=reset_mid_transfer_test",
+        "+UVM_NO_RELNOTES",
+        "+TEST_SEED=1",
+        "+AXI_AW_WAIT_W=1",
+        "+AXI_STALL_MAX=7",
+        "+AXI_STALL_SEED=1"
+      ],
+      "Result": "PASS",
+      "Reason": "",
+      "GitRevision": "c5f730ddb48d09e6effee9ebe9ac23aac5003cc1",
+      "GitDirty": true,
+      "ToolVersion": "Model Technology ModelSim - INTEL FPGA STARTER EDITION vsim 2020.1 Simulator 2020.02 Feb 28 2020",
+      "ExitCode": 0,
+      "TimedOut": false,
+      "RuntimeSeconds": 8.684,
+      "LogPath": "output/62b81b5c/reset_mid_transfer_test_seed_1/simulation.log"
+    },
+    {
+      "Test": "reset_mid_transfer_test",
+      "Seed": 7,
+      "PlusArgs": [
+        "+UVM_TESTNAME=reset_mid_transfer_test",
+        "+UVM_NO_RELNOTES",
+        "+TEST_SEED=7",
+        "+AXI_AW_WAIT_W=1",
+        "+AXI_STALL_MAX=7",
+        "+AXI_STALL_SEED=7"
+      ],
+      "Result": "PASS",
+      "Reason": "",
+      "GitRevision": "c5f730ddb48d09e6effee9ebe9ac23aac5003cc1",
+      "GitDirty": true,
+      "ToolVersion": "Model Technology ModelSim - INTEL FPGA STARTER EDITION vsim 2020.1 Simulator 2020.02 Feb 28 2020",
+      "ExitCode": 0,
+      "TimedOut": false,
+      "RuntimeSeconds": 9.106,
+      "LogPath": "output/62b81b5c/reset_mid_transfer_test_seed_7/simulation.log"
+    },
+    {
+      "Test": "reset_mid_transfer_test",
+      "Seed": 42,
+      "PlusArgs": [
+        "+UVM_TESTNAME=reset_mid_transfer_test",
+        "+UVM_NO_RELNOTES",
+        "+TEST_SEED=42",
+        "+AXI_AW_WAIT_W=1",
+        "+AXI_STALL_MAX=7",
+        "+AXI_STALL_SEED=42"
+      ],
+      "Result": "PASS",
+      "Reason": "",
+      "GitRevision": "c5f730ddb48d09e6effee9ebe9ac23aac5003cc1",
+      "GitDirty": true,
+      "ToolVersion": "Model Technology ModelSim - INTEL FPGA STARTER EDITION vsim 2020.1 Simulator 2020.02 Feb 28 2020",
+      "ExitCode": 0,
+      "TimedOut": false,
+      "RuntimeSeconds": 8.051,
+      "LogPath": "output/62b81b5c/reset_mid_transfer_test_seed_42/simulation.log"
+    },
+    {
+      "Test": "seeded_copy_test",
+      "Seed": 1,
+      "PlusArgs": [
+        "+UVM_TESTNAME=seeded_copy_test",
+        "+UVM_NO_RELNOTES",
+        "+TEST_SEED=1",
+        "+AXI_AW_WAIT_W=1",
+        "+AXI_STALL_MAX=7",
+        "+AXI_STALL_SEED=1"
+      ],
+      "Result": "PASS",
+      "Reason": "",
+      "GitRevision": "c5f730ddb48d09e6effee9ebe9ac23aac5003cc1",
+      "GitDirty": true,
+      "ToolVersion": "Model Technology ModelSim - INTEL FPGA STARTER EDITION vsim 2020.1 Simulator 2020.02 Feb 28 2020",
+      "ExitCode": 0,
+      "TimedOut": false,
+      "RuntimeSeconds": 100.003,
+      "LogPath": "output/62b81b5c/seeded_copy_test_seed_1/simulation.log"
+    },
+    {
+      "Test": "seeded_copy_test",
+      "Seed": 7,
+      "PlusArgs": [
+        "+UVM_TESTNAME=seeded_copy_test",
+        "+UVM_NO_RELNOTES",
+        "+TEST_SEED=7",
+        "+AXI_AW_WAIT_W=1",
+        "+AXI_STALL_MAX=7",
+        "+AXI_STALL_SEED=7"
+      ],
+      "Result": "PASS",
+      "Reason": "",
+      "GitRevision": "c5f730ddb48d09e6effee9ebe9ac23aac5003cc1",
+      "GitDirty": true,
+      "ToolVersion": "Model Technology ModelSim - INTEL FPGA STARTER EDITION vsim 2020.1 Simulator 2020.02 Feb 28 2020",
+      "ExitCode": 0,
+      "TimedOut": false,
+      "RuntimeSeconds": 106.141,
+      "LogPath": "output/62b81b5c/seeded_copy_test_seed_7/simulation.log"
+    },
+    {
+      "Test": "seeded_copy_test",
+      "Seed": 42,
+      "PlusArgs": [
+        "+UVM_TESTNAME=seeded_copy_test",
+        "+UVM_NO_RELNOTES",
+        "+TEST_SEED=42",
+        "+AXI_AW_WAIT_W=1",
+        "+AXI_STALL_MAX=7",
+        "+AXI_STALL_SEED=42"
+      ],
+      "Result": "PASS",
+      "Reason": "",
+      "GitRevision": "c5f730ddb48d09e6effee9ebe9ac23aac5003cc1",
+      "GitDirty": true,
+      "ToolVersion": "Model Technology ModelSim - INTEL FPGA STARTER EDITION vsim 2020.1 Simulator 2020.02 Feb 28 2020",
+      "ExitCode": 0,
+      "TimedOut": false,
+      "RuntimeSeconds": 117.035,
+      "LogPath": "output/62b81b5c/seeded_copy_test_seed_42/simulation.log"
+    },
+    {
+      "Test": "read_error_test",
+      "Seed": 1,
+      "PlusArgs": [
+        "+UVM_TESTNAME=read_error_test",
+        "+UVM_NO_RELNOTES",
+        "+TEST_SEED=1",
+        "+AXI_AW_WAIT_W=1",
+        "+AXI_STALL_MAX=7",
+        "+AXI_RERR_ADDR=100",
+        "+AXI_STALL_SEED=1"
+      ],
+      "Result": "PASS",
+      "Reason": "",
+      "GitRevision": "c5f730ddb48d09e6effee9ebe9ac23aac5003cc1",
+      "GitDirty": true,
+      "ToolVersion": "Model Technology ModelSim - INTEL FPGA STARTER EDITION vsim 2020.1 Simulator 2020.02 Feb 28 2020",
+      "ExitCode": 0,
+      "TimedOut": false,
+      "RuntimeSeconds": 4.873,
+      "LogPath": "output/28469d63/read_error_test_seed_1/simulation.log"
+    },
+    {
+      "Test": "read_error_test",
+      "Seed": 7,
+      "PlusArgs": [
+        "+UVM_TESTNAME=read_error_test",
+        "+UVM_NO_RELNOTES",
+        "+TEST_SEED=7",
+        "+AXI_AW_WAIT_W=1",
+        "+AXI_STALL_MAX=7",
+        "+AXI_RERR_ADDR=100",
+        "+AXI_STALL_SEED=7"
+      ],
+      "Result": "PASS",
+      "Reason": "",
+      "GitRevision": "c5f730ddb48d09e6effee9ebe9ac23aac5003cc1",
+      "GitDirty": true,
+      "ToolVersion": "Model Technology ModelSim - INTEL FPGA STARTER EDITION vsim 2020.1 Simulator 2020.02 Feb 28 2020",
+      "ExitCode": 0,
+      "TimedOut": false,
+      "RuntimeSeconds": 4.902,
+      "LogPath": "output/28469d63/read_error_test_seed_7/simulation.log"
+    },
+    {
+      "Test": "read_error_test",
+      "Seed": 42,
+      "PlusArgs": [
+        "+UVM_TESTNAME=read_error_test",
+        "+UVM_NO_RELNOTES",
+        "+TEST_SEED=42",
+        "+AXI_AW_WAIT_W=1",
+        "+AXI_STALL_MAX=7",
+        "+AXI_RERR_ADDR=100",
+        "+AXI_STALL_SEED=42"
+      ],
+      "Result": "PASS",
+      "Reason": "",
+      "GitRevision": "c5f730ddb48d09e6effee9ebe9ac23aac5003cc1",
+      "GitDirty": true,
+      "ToolVersion": "Model Technology ModelSim - INTEL FPGA STARTER EDITION vsim 2020.1 Simulator 2020.02 Feb 28 2020",
+      "ExitCode": 0,
+      "TimedOut": false,
+      "RuntimeSeconds": 4.592,
+      "LogPath": "output/28469d63/read_error_test_seed_42/simulation.log"
+    },
+    {
+      "Test": "write_error_test",
+      "Seed": 1,
+      "PlusArgs": [
+        "+UVM_TESTNAME=write_error_test",
+        "+UVM_NO_RELNOTES",
+        "+TEST_SEED=1",
+        "+AXI_AW_WAIT_W=1",
+        "+AXI_STALL_MAX=7",
+        "+AXI_BERR_ADDR=8000",
+        "+AXI_STALL_SEED=1"
+      ],
+      "Result": "PASS",
+      "Reason": "",
+      "GitRevision": "c5f730ddb48d09e6effee9ebe9ac23aac5003cc1",
+      "GitDirty": true,
+      "ToolVersion": "Model Technology ModelSim - INTEL FPGA STARTER EDITION vsim 2020.1 Simulator 2020.02 Feb 28 2020",
+      "ExitCode": 0,
+      "TimedOut": false,
+      "RuntimeSeconds": 5.178,
+      "LogPath": "output/5029afef/write_error_test_seed_1/simulation.log"
+    },
+    {
+      "Test": "write_error_test",
+      "Seed": 7,
+      "PlusArgs": [
+        "+UVM_TESTNAME=write_error_test",
+        "+UVM_NO_RELNOTES",
+        "+TEST_SEED=7",
+        "+AXI_AW_WAIT_W=1",
+        "+AXI_STALL_MAX=7",
+        "+AXI_BERR_ADDR=8000",
+        "+AXI_STALL_SEED=7"
+      ],
+      "Result": "PASS",
+      "Reason": "",
+      "GitRevision": "c5f730ddb48d09e6effee9ebe9ac23aac5003cc1",
+      "GitDirty": true,
+      "ToolVersion": "Model Technology ModelSim - INTEL FPGA STARTER EDITION vsim 2020.1 Simulator 2020.02 Feb 28 2020",
+      "ExitCode": 0,
+      "TimedOut": false,
+      "RuntimeSeconds": 5.823,
+      "LogPath": "output/5029afef/write_error_test_seed_7/simulation.log"
+    },
+    {
+      "Test": "write_error_test",
+      "Seed": 42,
+      "PlusArgs": [
+        "+UVM_TESTNAME=write_error_test",
+        "+UVM_NO_RELNOTES",
+        "+TEST_SEED=42",
+        "+AXI_AW_WAIT_W=1",
+        "+AXI_STALL_MAX=7",
+        "+AXI_BERR_ADDR=8000",
+        "+AXI_STALL_SEED=42"
+      ],
+      "Result": "PASS",
+      "Reason": "",
+      "GitRevision": "c5f730ddb48d09e6effee9ebe9ac23aac5003cc1",
+      "GitDirty": true,
+      "ToolVersion": "Model Technology ModelSim - INTEL FPGA STARTER EDITION vsim 2020.1 Simulator 2020.02 Feb 28 2020",
+      "ExitCode": 0,
+      "TimedOut": false,
+      "RuntimeSeconds": 5.167,
+      "LogPath": "output/5029afef/write_error_test_seed_42/simulation.log"
+    }
+  ],
+  "OutputDirectory": "output/portfolio-404eb2dd",
+  "_Publication": {
+    "Kind": "sanitized-historical-review-copy",
+    "OriginalArtifactSha256": "ec0e61a4ec90ac75a6b7089b83c983588d97755c22844499d42ea539ab452f1a",
+    "Changes": [
+      "Machine paths replaced with portable aliases",
+      "Date stamps removed from run and artifact path names"
+    ],
+    "HashScope": "Existing source, report, manifest hashes and provenance signatures describe the original executed artifacts, not these rewritten review copies or the current working tree.",
+    "Replay": "Regenerate raw outputs with the runners for machine validation; this review copy is not a strict-merger input."
+  }
+}

@@ -1,0 +1,135 @@
+{
+  "AutomaticRetries": false,
+  "OriginalReports": [
+    "output/35e79395/summary.json",
+    "output/34765be1/summary.json"
+  ],
+  "Reports": [
+    {
+      "SchemaVersion": 1,
+      "Mode": "regression",
+      "RunId": "35e79395",
+      "StartedUtc": "2026-09-13T21:09:57.7313574Z",
+      "CompletedUtc": "2026-09-13T21:10:07.9304184Z",
+      "GitRevision": "c5f730ddb48d09e6effee9ebe9ac23aac5003cc1",
+      "GitDirty": true,
+      "ToolVersion": "Model Technology ModelSim - INTEL FPGA STARTER EDITION vsim 2020.1 Simulator 2020.02 Feb 28 2020",
+      "VsimPath": "{simulator}/win32aloem/vsim.exe",
+      "UvmPath": "{simulator}/verilog_src/uvm-1.2/src",
+      "CoverageEnabled": false,
+      "SvaEnabled": false,
+      "Tests": [
+        "smoke_test"
+      ],
+      "Seeds": [
+        7
+      ],
+      "PlusArgs": [
+        "+AXI_AW_WAIT_W=1",
+        "+AXI_STALL_MAX=7"
+      ],
+      "TimeoutSeconds": 180,
+      "OutputDirectory": "output/35e79395",
+      "SourceManifestPath": "output/35e79395/source_manifest.json",
+      "Compile": {
+        "Result": "PASS",
+        "Reason": "",
+        "ExitCode": 0,
+        "TimedOut": false,
+        "RuntimeSeconds": 3.594,
+        "LogPath": "output/35e79395/compile.log"
+      },
+      "Results": [
+        {
+          "Test": "smoke_test",
+          "Seed": 7,
+          "PlusArgs": [
+            "+UVM_TESTNAME=smoke_test",
+            "+UVM_NO_RELNOTES",
+            "+TEST_SEED=7",
+            "+AXI_AW_WAIT_W=1",
+            "+AXI_STALL_MAX=7",
+            "+AXI_STALL_SEED=7"
+          ],
+          "Result": "PASS",
+          "Reason": "",
+          "GitRevision": "c5f730ddb48d09e6effee9ebe9ac23aac5003cc1",
+          "GitDirty": true,
+          "ToolVersion": "Model Technology ModelSim - INTEL FPGA STARTER EDITION vsim 2020.1 Simulator 2020.02 Feb 28 2020",
+          "ExitCode": 0,
+          "TimedOut": false,
+          "RuntimeSeconds": 5.742,
+          "LogPath": "output/35e79395/smoke_test_seed_7/simulation.log"
+        }
+      ]
+    },
+    {
+      "SchemaVersion": 1,
+      "Mode": "regression",
+      "RunId": "34765be1",
+      "StartedUtc": "2026-09-13T21:10:08.4916517Z",
+      "CompletedUtc": "2026-09-13T21:10:17.0896288Z",
+      "GitRevision": "c5f730ddb48d09e6effee9ebe9ac23aac5003cc1",
+      "GitDirty": true,
+      "ToolVersion": "Model Technology ModelSim - INTEL FPGA STARTER EDITION vsim 2020.1 Simulator 2020.02 Feb 28 2020",
+      "VsimPath": "{simulator}/win32aloem/vsim.exe",
+      "UvmPath": "{simulator}/verilog_src/uvm-1.2/src",
+      "CoverageEnabled": false,
+      "SvaEnabled": false,
+      "Tests": [
+        "out_of_range_test"
+      ],
+      "Seeds": [
+        1
+      ],
+      "PlusArgs": [
+        "+AXI_AW_WAIT_W=1",
+        "+AXI_STALL_MAX=7"
+      ],
+      "TimeoutSeconds": 180,
+      "OutputDirectory": "output/34765be1",
+      "SourceManifestPath": "output/34765be1/source_manifest.json",
+      "Compile": {
+        "Result": "PASS",
+        "Reason": "",
+        "ExitCode": 0,
+        "TimedOut": false,
+        "RuntimeSeconds": 4.867,
+        "LogPath": "output/34765be1/compile.log"
+      },
+      "Results": [
+        {
+          "Test": "out_of_range_test",
+          "Seed": 1,
+          "PlusArgs": [
+            "+UVM_TESTNAME=out_of_range_test",
+            "+UVM_NO_RELNOTES",
+            "+TEST_SEED=1",
+            "+AXI_AW_WAIT_W=1",
+            "+AXI_STALL_MAX=7",
+            "+AXI_STALL_SEED=1"
+          ],
+          "Result": "FAIL",
+          "Reason": "Simulator exited with code 211.",
+          "GitRevision": "c5f730ddb48d09e6effee9ebe9ac23aac5003cc1",
+          "GitDirty": true,
+          "ToolVersion": "Model Technology ModelSim - INTEL FPGA STARTER EDITION vsim 2020.1 Simulator 2020.02 Feb 28 2020",
+          "ExitCode": 211,
+          "TimedOut": false,
+          "RuntimeSeconds": 2.838,
+          "LogPath": "output/34765be1/out_of_range_test_seed_1/simulation.log"
+        }
+      ]
+    }
+  ],
+  "_Publication": {
+    "Kind": "sanitized-historical-review-copy",
+    "OriginalArtifactSha256": "e3706f5121ebb6dfeb4f287d8dcb14d5b5c4b775f91d589e97a1202d29b9f34a",
+    "Changes": [
+      "Machine paths replaced with portable aliases",
+      "Date stamps removed from run and artifact path names"
+    ],
+    "HashScope": "Existing source, report, manifest hashes and provenance signatures describe the original executed artifacts, not these rewritten review copies or the current working tree.",
+    "Replay": "Regenerate raw outputs with the runners for machine validation; this review copy is not a strict-merger input."
+  }
+}

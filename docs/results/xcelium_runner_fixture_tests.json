@@ -1,0 +1,88 @@
+{
+  "Mode": "RUNNER_CONTROL_FIXTURES_ONLY",
+  "DutSimulation": false,
+  "ActualXceliumExecuted": false,
+  "Results": [
+    {
+      "Fixture": "dry_run_39_matrix",
+      "ExpectedResult": "NOT_RUN",
+      "Count": 39
+    },
+    {
+      "Fixture": "uvm_error",
+      "ExitCode": 3,
+      "ObservedResult": "FAIL",
+      "Reason": "UVM reported an error or fatal."
+    },
+    {
+      "Fixture": "tool_error",
+      "ExitCode": 3,
+      "ObservedResult": "FAIL",
+      "Reason": "Simulator reported an error, assertion violation, crash, or inactive feature."
+    },
+    {
+      "Fixture": "assertion",
+      "ExitCode": 3,
+      "ObservedResult": "FAIL",
+      "Reason": "Simulator reported an error, assertion violation, crash, or inactive feature."
+    },
+    {
+      "Fixture": "nonzero",
+      "ExitCode": 3,
+      "ObservedResult": "FAIL",
+      "Reason": "Simulator returned nonzero exit code 7."
+    },
+    {
+      "Fixture": "missing_marker",
+      "ExitCode": 3,
+      "ObservedResult": "FAIL",
+      "Reason": "Required completion marker 'copy_test PASSED' is missing."
+    },
+    {
+      "Fixture": "missing_summary",
+      "ExitCode": 3,
+      "ObservedResult": "FAIL",
+      "Reason": "Clean UVM report summary is missing."
+    },
+    {
+      "Fixture": "missing_tsv",
+      "ExitCode": 3,
+      "ObservedResult": "FAIL",
+      "Reason": "Observed-requirement coverage TSV is missing."
+    },
+    {
+      "Fixture": "malformed_tsv",
+      "ExitCode": 3,
+      "ObservedResult": "FAIL",
+      "Reason": "Coverage TSV has a duplicate/unknown bin or invalid hit count."
+    },
+    {
+      "Fixture": "missing_native",
+      "ExitCode": 3,
+      "ObservedResult": "FAIL",
+      "Reason": "Native coverage was requested but no nonempty .ucd database was produced."
+    },
+    {
+      "Fixture": "timeout",
+      "ExitCode": 3,
+      "ObservedResult": "FAIL",
+      "Reason": "Wall-clock timeout; simulator process group was terminated."
+    },
+    {
+      "Fixture": "pass",
+      "ExitCode": 0,
+      "ObservedResult": "PASS",
+      "Reason": ""
+    }
+  ],
+  "_Publication": {
+    "Kind": "sanitized-historical-review-copy",
+    "OriginalArtifactSha256": "95d754e17a79b7ac908d9c964b73e1960e22f83754bd3a3dc6f4aa450997b5c5",
+    "Changes": [
+      "Machine paths replaced with portable aliases",
+      "Date stamps removed from run and artifact path names"
+    ],
+    "HashScope": "Existing source, report, manifest hashes and provenance signatures describe the original executed artifacts, not these rewritten review copies or the current working tree.",
+    "Replay": "Regenerate raw outputs with the runners for machine validation; this review copy is not a strict-merger input."
+  }
+}
